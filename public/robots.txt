@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sauvikbanerjjee.com/
+
+# Sitemaps
+Sitemap: https://sauvikbanerjjee.com/sitemap.xml
