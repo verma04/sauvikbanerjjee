@@ -16,9 +16,10 @@ const Twitter = () => {
     arrows: false,
   };
   const data = [
-    "https://twitter.com/sauvikbanerjjee/status/1691043792588017664",
+    "https://twitter.com/RezolveAi/status/2003134267589619928?ref_src=twsrc%5Etfw",
     // "https://twitter.com/sauvikbanerjjee/status/1580283559017058305", "https://twitter.com/sauvikbanerjjee/status/1580282881163038720"
   ];
+
   return (
     <Slider {...settings}>
       {data.map((set) => (

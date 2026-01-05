@@ -16,10 +16,11 @@ const Insta = () => {
     arrows: false,
   };
   const set = [
-    "https://www.linkedin.com/embed/feed/update/urn:li:share:7310268236850180097",
+    "https://www.linkedin.com/embed/feed/update/urn:li:share:7411395086015578112?collapsed=1",
     // "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7051895511544455168",
     // "https://www.linkedin.com/embed/feed/update/urn:li:share:7047135614038618112",
   ];
+
   return (
     <Slider {...settings}>
       {set.map((set) => (

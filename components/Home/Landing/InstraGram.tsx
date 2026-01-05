@@ -17,7 +17,7 @@ const Instragram = () => {
   };
 
   const data = [
-    "https://www.instagram.com/reel/CzwKxqlt322",
+    "https://www.instagram.com/reel/DEPjbSfAKWu/?igsh=eTU5Y3Zva2N3anMx",
     // "https://www.instagram.com/p/Cre2R6bo337",
     // "https://www.instagram.com/p/CrdCerLAV0K",
   ];
