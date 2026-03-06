@@ -5,8 +5,6 @@ import { client } from "../../utils/client";
 import Blog from "../../components/blog/Blog";
 
 const blogtest = ({ blogs }) => {
-  console.log(blogs);
-
   return (
     <PageLayout>
       <Head>

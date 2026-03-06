@@ -19,7 +19,7 @@ const Blog = ({ blogs }) => {
       alignItems="center"
       flexDirection={"column"}
     >
-      <Center flexWrap={"wrap"} w="100%" mt="7rem">
+      <Center flexWrap={"wrap"} w="100%" mt="7rem" gap={10} p={10}>
         {blogs?.map((t, index) => (
           <List key={index} data={t} index={index} />
         ))}
