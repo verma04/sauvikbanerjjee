@@ -11,10 +11,10 @@ import List from "../List";
 import { PortableText } from "@portabletext/react";
 import moment from "moment";
 
-const MotionBox = motion(Box);
-const MotionHeading = motion(Heading);
-const MotionText = motion(Text);
-const MotionFlex = motion(Flex);
+const MotionBox: any = motion(Box as any);
+const MotionHeading: any = motion(Heading as any);
+const MotionText: any = motion(Text as any);
+const MotionFlex: any = motion(Flex as any);
 
 const glowPulse = keyframes`
   0%, 100% { opacity: 0.3; }
@@ -37,6 +37,18 @@ const fadeInUp = {
 const BlogView = ({ data, blogs }) => {
   const router = useRouter();
 
+  const [related, setRelated] = React.useState<any[]>([]);
+
+  React.useEffect(() => {
+    if (typeof window !== "undefined" && Array.isArray(blogs)) {
+      const filtered = blogs.filter((b) => b?.slug?.current !== data?.slug?.current);
+      const shuffled = [...(filtered.length ? filtered : blogs)]
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 3);
+      setRelated(shuffled);
+    }
+  }, [blogs, data?.slug?.current]);
+
   // Estimate reading time
   const readingTime = Math.max(
     3,
@@ -55,6 +67,9 @@ const BlogView = ({ data, blogs }) => {
       }, 0) || 300) / 200,
     ),
   );
+
+  const imageUrl = data?.mainImage?.asset?.url;
+  const videoUrl = data?.mainVideo?.asset?.url || data?.videoUrl;
 
   return (
     <Box bg="black" minHeight="100svh" width="100vw" overflowX="hidden">
@@ -86,139 +101,182 @@ const BlogView = ({ data, blogs }) => {
         zIndex={0}
       />
 
-      {/* Hero Image Section */}
-      <Box position="relative" width="100%" height={["50vh", "55vh", "65vh"]}>
-        <Image
-          alt={data?.title || "Blog post"}
-          src={data?.mainImage?.asset?.url}
-          fill
-          priority
-          style={{ objectFit: "cover" }}
-        />
-        {/* Dark overlay gradients */}
+      {/* Featured Media Section in Container */}
+      <Box
+        pt={["5.5rem", "6.5rem", "7.5rem"]}
+        px={["1rem", "1.5rem", "2.5rem"]}
+        maxW="1150px"
+        mx="auto"
+        position="relative"
+        zIndex={1}
+      >
         <Box
-          position="absolute"
-          inset={0}
-          bgGradient="linear(to-b, rgba(0,0,0,0.3), rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.85) 85%, black)"
-          zIndex={1}
-        />
-        <Box
-          position="absolute"
-          inset={0}
-          bgGradient="linear(to-r, rgba(0,0,0,0.3), transparent)"
-          zIndex={1}
-        />
-
-        {/* Back Button */}
-        <MotionBox
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          position="absolute"
-          top={["5rem", "5rem", "6rem"]}
-          left={["1.5rem", "2rem", "4rem"]}
-          zIndex={3}
+          position="relative"
+          width="100%"
+          height={["380px", "450px", "520px", "580px"]}
+          borderRadius={["1.2rem", "1.5rem", "2rem"]}
+          overflow="hidden"
+          border="1px solid"
+          borderColor="whiteAlpha.150"
+          boxShadow="0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(139,92,246,0.12)"
         >
-          <Flex
-            as="button"
-            onClick={() => router.push("/blog")}
-            alignItems="center"
-            gap="0.6rem"
-            bg="whiteAlpha.100"
-            backdropFilter="blur(12px)"
-            border="1px solid"
-            borderColor="whiteAlpha.150"
-            borderRadius="full"
-            px="1.2rem"
-            py="0.6rem"
-            cursor="pointer"
-            transition="all 0.3s ease"
-            _hover={{
-              bg: "whiteAlpha.200",
-              transform: "translateX(-3px)",
-            }}
+          {imageUrl ? (
+            <Image
+              alt={data?.title || "Blog post"}
+              src={imageUrl}
+              fill
+              priority
+              style={{ objectFit: "cover" }}
+            />
+          ) : videoUrl ? (
+            <video
+              src={videoUrl}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
+          ) : (
+            <Box
+              position="absolute"
+              inset={0}
+              bgGradient="linear(to-br, #1e1b4b, #000000)"
+            />
+          )}
+
+          {/* Dark overlay gradients */}
+          <Box
+            position="absolute"
+            inset={0}
+            bgGradient="linear(to-b, rgba(0,0,0,0.4), rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.85) 85%, rgba(0,0,0,0.95))"
+            zIndex={1}
+          />
+          <Box
+            position="absolute"
+            inset={0}
+            bgGradient="linear(to-r, rgba(0,0,0,0.4), transparent)"
+            zIndex={1}
+          />
+
+          {/* Back Button */}
+          <MotionBox
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            position="absolute"
+            top={["1.2rem", "1.5rem", "2rem"]}
+            left={["1.2rem", "1.5rem", "2rem"]}
+            zIndex={3}
           >
-            <Text color="white" fontSize="0.9rem">
-              ←
-            </Text>
-            <Text
-              color="whiteAlpha.800"
-              fontSize="0.8rem"
-              fontWeight={500}
-              letterSpacing="0.03em"
+            <Flex
+              as="button"
+              onClick={() => router.push("/blog")}
+              alignItems="center"
+              gap="0.6rem"
+              bg="blackAlpha.600"
+              backdropFilter="blur(12px)"
+              border="1px solid"
+              borderColor="whiteAlpha.200"
+              borderRadius="full"
+              px="1.2rem"
+              py="0.6rem"
+              cursor="pointer"
+              transition="all 0.3s ease"
+              _hover={{
+                bg: "whiteAlpha.300",
+                transform: "translateX(-3px)",
+              }}
             >
-              Back to Blog
-            </Text>
-          </Flex>
-        </MotionBox>
-
-        {/* Title overlay on hero */}
-        <Center
-          position="absolute"
-          bottom={0}
-          left={0}
-          right={0}
-          zIndex={2}
-          flexDirection="column"
-          pb="3rem"
-          px={["1.5rem", "2rem", "4rem"]}
-        >
-          {/* Category & Date */}
-          <MotionFlex
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            gap="1rem"
-            alignItems="center"
-            mb="1.2rem"
-            flexWrap="wrap"
-            justifyContent="center"
-          >
-            {data?.categories?.[0]?.title && (
-              <Box
-                bg="rgba(139,92,246,0.25)"
-                color="#c4b5fd"
-                fontSize="0.72rem"
-                fontWeight={600}
-                textTransform="uppercase"
-                letterSpacing="0.1em"
-                px="0.85rem"
-                py="0.35rem"
-                borderRadius="full"
-                border="1px solid rgba(139,92,246,0.3)"
+              <Text color="white" fontSize="0.9rem">
+                ←
+              </Text>
+              <Text
+                color="whiteAlpha.900"
+                fontSize="0.8rem"
+                fontWeight={500}
+                letterSpacing="0.03em"
               >
-                {data.categories[0].title}
-              </Box>
-            )}
-            <Text color="whiteAlpha.500" fontSize="0.8rem">
-              •
-            </Text>
-            <Text color="whiteAlpha.600" fontSize="0.8rem" fontWeight={400}>
-              {moment(data?.publishedAt).format("MMMM D, YYYY")}
-            </Text>
-            <Text color="whiteAlpha.500" fontSize="0.8rem">
-              •
-            </Text>
-            <Text color="whiteAlpha.500" fontSize="0.8rem" fontWeight={400}>
-              {readingTime} min read
-            </Text>
-          </MotionFlex>
+                Back to Blog
+              </Text>
+            </Flex>
+          </MotionBox>
 
-          <MotionHeading
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            fontSize={["1.8rem", "2.2rem", "3rem", "3.5rem"]}
-            fontWeight={800}
-            color="white"
-            textAlign="center"
-            lineHeight={1.15}
-            maxW="900px"
-            textTransform="uppercase"
+          {/* Title overlay on hero */}
+          <Center
+            position="absolute"
+            bottom={0}
+            left={0}
+            right={0}
+            zIndex={2}
+            flexDirection="column"
+            pb={["1.8rem", "2.5rem", "3rem"]}
+            px={["1.2rem", "2rem", "3rem"]}
           >
-            {data?.title}
-          </MotionHeading>
-        </Center>
+            {/* Category & Date */}
+            <MotionFlex
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              gap="1rem"
+              alignItems="center"
+              mb="1.2rem"
+              flexWrap="wrap"
+              justifyContent="center"
+            >
+              {data?.categories?.[0]?.title && (
+                <Box
+                  bg="rgba(139,92,246,0.3)"
+                  backdropFilter="blur(12px)"
+                  color="#c4b5fd"
+                  fontSize="0.72rem"
+                  fontWeight={600}
+                  textTransform="uppercase"
+                  letterSpacing="0.1em"
+                  px="0.85rem"
+                  py="0.35rem"
+                  borderRadius="full"
+                  border="1px solid rgba(139,92,246,0.4)"
+                >
+                  {data.categories[0].title}
+                </Box>
+              )}
+              <Text color="whiteAlpha.500" fontSize="0.8rem">
+                •
+              </Text>
+              <Text color="whiteAlpha.600" fontSize="0.8rem" fontWeight={400}>
+                {moment(data?.publishedAt).format("MMMM D, YYYY")}
+              </Text>
+              <Text color="whiteAlpha.500" fontSize="0.8rem">
+                •
+              </Text>
+              <Text color="whiteAlpha.500" fontSize="0.8rem" fontWeight={400}>
+                {readingTime} min read
+              </Text>
+            </MotionFlex>
+
+            <MotionHeading
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              fontSize={["1.5rem", "2rem", "2.6rem", "3.2rem"]}
+              fontWeight={800}
+              color="white"
+              textAlign="center"
+              lineHeight={1.15}
+              maxW="900px"
+              textTransform="uppercase"
+            >
+              {data?.title}
+            </MotionHeading>
+          </Center>
+        </Box>
       </Box>
 
       {/* Article Content */}
@@ -422,25 +480,29 @@ const BlogView = ({ data, blogs }) => {
         <Center
           flexWrap="wrap"
           w="100%"
+          maxW="1300px"
+          mx="auto"
           px={["1rem", "2rem", "3rem"]}
           pt="2rem"
           pb="7rem"
           justifyContent="center"
           gap={["1.5rem", "1.5rem", "2rem"]}
         >
-          {blogs
-            ?.sort(() => 0.5 - Math.random())
-            ?.slice(0, 3)
+          {(related.length ? related : blogs?.slice(0, 3))
             ?.map((t, index) => (
               <MotionBox
-                key={index}
+                key={t?._id || index}
                 custom={index + 2}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
                 variants={fadeInUp}
+                w={["100%", "calc(50% - 1.5rem)", "calc(33.333% - 1.5rem)"]}
+                maxW="380px"
+                display="flex"
+                justifyContent="center"
               >
-                <List key={index} data={t} index={index} />
+                <List data={t} index={index} width="100%" />
               </MotionBox>
             ))}
         </Center>

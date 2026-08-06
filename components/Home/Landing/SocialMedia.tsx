@@ -139,14 +139,14 @@ export default function SocialMedia() {
           draggable={true}
           showDots={false}
           responsive={responsive}
-          ssr={true} // means to render carousel on server-side.
+          ssr={false}
           infinite={true}
           removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
           keyBoardControl={true}
           customTransition="all 2"
           transitionDuration={2000}
         >
-          <Box className="panel" width={"100vw"} height="80vh">
+          <Box key="panel-1" className="panel" width={"100vw"} height="80vh">
             <Box
               width={["100%", "100%", "30%", "30%"]}
               height="60vh"
@@ -204,7 +204,7 @@ export default function SocialMedia() {
               </Center>
             </Box>
           </Box>
-          <Box className="panel" width={"100vw"} height="80vh">
+          <Box key="panel-2" className="panel" width={"100vw"} height="80vh">
             <Box
               width={["100%", "100%", "30%", "30%"]}
               height="60vh"
@@ -263,7 +263,7 @@ export default function SocialMedia() {
             </Box>
           </Box>
 
-          <Box className="panel" width={"100vw"} height="80vh">
+          <Box key="panel-3" className="panel" width={"100vw"} height="80vh">
             <Box
               width={["100%", "100%", "30%", "30%"]}
               height="60vh"

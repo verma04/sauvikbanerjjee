@@ -3,7 +3,7 @@ import React from 'react'
 import Futurism from '../components/futurism/Futurism'
 import PageLayout from '../components/Header/PageLayout'
 
-const futurism = () => {
+const Futurism2050Page = () => {
     return (
         <PageLayout>
             <Head>
@@ -21,4 +21,4 @@ const futurism = () => {
     )
 }
 
-export default futurism
+export default Futurism2050Page

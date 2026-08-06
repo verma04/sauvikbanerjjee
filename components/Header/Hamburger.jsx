@@ -29,6 +29,7 @@ const Hamburger = ({ state }) => {
   let line7 = useRef(null);
   let line8 = useRef(null);
   let line9 = useRef(null);
+  let line10 = useRef(null);
   let info = useRef(null);
 
   const data = [{ name: "Home", image: "/", ref: { line1 } }];
@@ -64,7 +65,8 @@ const Hamburger = ({ state }) => {
         line6,
         line7,
         line8,
-        line9
+        line9,
+        line10
       );
     }
   }, [state]);
@@ -193,12 +195,25 @@ const Hamburger = ({ state }) => {
                   </li>
 
                   <li>
-                    <NextLink href="/contact-us">
+                    <NextLink href="/reflections">
                       <Heading
                         _hover={{
                           color: "#2981E2",
                         }}
                         ref={(el) => (line9 = el)}
+                      >
+                        Reflections
+                      </Heading>
+                    </NextLink>
+                  </li>
+
+                  <li>
+                    <NextLink href="/contact-us">
+                      <Heading
+                        _hover={{
+                          color: "#2981E2",
+                        }}
+                        ref={(el) => (line10 = el)}
                       >
                         Contact
                       </Heading>

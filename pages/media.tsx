@@ -4,7 +4,7 @@ import PageLayout from "../components/Header/PageLayout";
 import VedioGallery from "../components/video/Video";
 import { useRouter } from "next/router";
 
-const video = () => {
+const MediaPage = () => {
   const router = useRouter();
   const query = router.query;
 
@@ -26,4 +26,4 @@ const video = () => {
   );
 };
 
-export default video;
+export default MediaPage;

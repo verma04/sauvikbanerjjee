@@ -3,7 +3,7 @@ import React from 'react'
 import PageLayout from '../components/Header/PageLayout'
 import Inevitable from '../components/inevitable/Inevitable'
 
-const invitable = () => {
+const InevitablePage = () => {
     return (
         <PageLayout>
 
@@ -22,4 +22,4 @@ const invitable = () => {
     )
 }
 
-export default invitable
+export default InevitablePage

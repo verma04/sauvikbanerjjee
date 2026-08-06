@@ -23,8 +23,8 @@ const Insta = () => {
 
   return (
     <Slider {...settings}>
-      {set.map((set) => (
-        <Box mt="2rem" width="90%" height="22rem">
+      {set.map((set, index) => (
+        <Box key={index} mt="2rem" width="90%" height="22rem">
           <LinkedInEmbed url={set} height={"100%"} width={"100%"} />
         </Box>
       ))}

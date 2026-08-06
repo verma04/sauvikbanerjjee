@@ -36,9 +36,10 @@ export const staggerText = (
   node6,
   node7,
   node8,
-  node9
+  node9,
+  node10
 ) => {
-  gsap.from([node1, node2, node3, node4, node5, node6, node7, node8, node9], {
+  gsap.from([node1, node2, node3, node4, node5, node6, node7, node8, node9, node10], {
     duration: 0.8,
     y: 100,
     delay: 0.1,

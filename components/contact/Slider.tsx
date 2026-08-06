@@ -36,7 +36,6 @@ import Image from "next/image";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { isDesktop, isMobile } from "react-device-detect";
 // Settings for the slider
 const settings = {
   dots: false,
@@ -83,7 +82,7 @@ export default function SliderContact() {
 
   return (
     <Box
-      display={isMobile ? "none" : "flex"}
+      display={["none", "none", "flex", "flex"]}
       backgroundRepeat={"repeat"}
       backgroundPosition="center"
       backgroundSize={"cover"}
@@ -125,7 +124,7 @@ export default function SliderContact() {
           draggable={true}
           showDots={false}
           responsive={responsive}
-          ssr={true} // means to render carousel on server-side.
+          ssr={false}
           infinite={true}
           autoPlay={true}
           autoPlaySpeed={1000}
@@ -135,7 +134,6 @@ export default function SliderContact() {
           transitionDuration={2000}
         >
           {data.map((t, index) => (
-            <>
               <Center key={index} width={"100vw"} height="70vh">
                 <Center
                   width={"100%"}
@@ -168,7 +166,6 @@ export default function SliderContact() {
                   </Center>
                 </Center>
               </Center>
-            </>
           ))}
         </Carousel>
       </Box>
@@ -188,7 +185,7 @@ export default function SliderContact() {
           draggable={true}
           showDots={false}
           responsive={responsive}
-          ssr={true} // means to render carousel on server-side.
+          ssr={false}
           infinite={true}
           autoPlay={true}
           autoPlaySpeed={1000}
@@ -198,7 +195,6 @@ export default function SliderContact() {
           transitionDuration={2000}
         >
           {data1.map((t, index) => (
-            <>
               <Center key={index} width={"100vw"} height="70vh">
                 <Center
                   width={"100%"}
@@ -231,7 +227,6 @@ export default function SliderContact() {
                   </Center>
                 </Center>
               </Center>
-            </>
           ))}
         </Carousel>
       </Box>

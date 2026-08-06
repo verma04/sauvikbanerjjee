@@ -23,8 +23,8 @@ const Instragram = () => {
   ];
   return (
     <Slider {...settings}>
-      {data.map((set) => (
-        <Box mt="2rem" width="90%" height="22rem">
+      {data.map((set, index) => (
+        <Box key={index} mt="2rem" width="90%" height="22rem">
           <InstagramEmbed url={set} height={"100%"} width={"100%"} />
         </Box>
       ))}

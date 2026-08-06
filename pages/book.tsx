@@ -3,7 +3,7 @@ import React from "react";
 import MyBook from "../components/book/MyBook";
 import PageLayout from "../components/Header/PageLayout";
 
-const book = () => {
+const BookPage = () => {
   return (
     <PageLayout>
 
@@ -19,4 +19,4 @@ const book = () => {
   );
 };
 
-export default book;
+export default BookPage;

@@ -4,7 +4,7 @@ import Header from '../components/Header/Header'
 import PageLayout from '../components/Header/PageLayout'
 import Timeline from '../components/timeline/Timeline'
 
-const timeline = () => {
+const TimelinePage = () => {
     return (
         <>    <Head>
             <title>Sauvik Banerjjee | Personal Story, Family, Cricket, Transition, India Story</title>
@@ -19,4 +19,4 @@ const timeline = () => {
     )
 }
 
-export default timeline
+export default TimelinePage
