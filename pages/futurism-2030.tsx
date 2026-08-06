@@ -3,7 +3,7 @@ import PageLayout from '../components/layout/PageLayout'
 import Futurism2030 from '../components/futurism2030/Futurism2030'
 import Head from 'next/head'
 
-const futurism = () => {
+const Futurism2030Page = () => {
     return (
         <PageLayout>
             <Head>
@@ -20,4 +20,4 @@ const futurism = () => {
     )
 }
 
-export default futurism
+export default Futurism2030Page
