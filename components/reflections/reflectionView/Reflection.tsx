@@ -216,51 +216,7 @@ const ReflectionView = ({ data, reflections }) => {
             pb={["1.8rem", "2.5rem", "3rem"]}
             px={["1.2rem", "2rem", "3rem"]}
           >
-            {/* Category, Date & Reading Time */}
-            <MotionFlex
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              gap="1rem"
-              alignItems="center"
-              mb="1.2rem"
-              flexWrap="wrap"
-              justifyContent="center"
-            >
-              {data?.categories?.[0]?.title && (
-                <Box
-                  bg="rgba(251,191,36,0.3)"
-                  backdropFilter="blur(12px)"
-                  color="#fde68a"
-                  fontSize="0.72rem"
-                  fontWeight={600}
-                  textTransform="uppercase"
-                  letterSpacing="0.1em"
-                  px="0.85rem"
-                  py="0.35rem"
-                  borderRadius="full"
-                  border="1px solid rgba(251,191,36,0.4)"
-                >
-                  {data.categories[0].title}
-                </Box>
-              )}
-              {data?.publishedAt && (
-                <>
-                  <Text color="whiteAlpha.500" fontSize="0.8rem">
-                    •
-                  </Text>
-                  <Text color="whiteAlpha.600" fontSize="0.8rem" fontWeight={400}>
-                    {moment(data.publishedAt).format("MMMM D, YYYY")}
-                  </Text>
-                </>
-              )}
-              <Text color="whiteAlpha.500" fontSize="0.8rem">
-                •
-              </Text>
-              <Text color="whiteAlpha.500" fontSize="0.8rem" fontWeight={400}>
-                {readingTime} min read
-              </Text>
-            </MotionFlex>
+
 
             <MotionHeading
               initial={{ opacity: 0, y: 30 }}
