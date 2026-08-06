@@ -35,6 +35,11 @@ export async function getStaticProps() {
     ...,
     asset->
   },
+  mainVideo {
+    ...,
+    asset->
+  },
+  videoUrl,
   categories[]->,
   body
 }

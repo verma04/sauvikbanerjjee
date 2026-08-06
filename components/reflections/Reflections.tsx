@@ -1,6 +1,6 @@
 "use client";
 //@ts-nocheck
-import { Center } from "@chakra-ui/react";
+import { Center, Box } from "@chakra-ui/react";
 import React from "react";
 
 import ReflectionList from "./List";
@@ -18,11 +18,13 @@ const Reflections = ({ reflections }) => {
       alignItems="center"
       flexDirection={"column"}
     >
-      <Center flexWrap={"wrap"} w="100%" mt="7rem" gap={10} p={10}>
-        {reflections?.map((t, index) => (
-          <ReflectionList key={index} data={t} index={index} />
-        ))}
-      </Center>
+      <Box w="100%" maxW="1250px" mx="auto" mt={["6rem", "7rem"]} px={["1rem", "2rem", "3rem"]} py={6}>
+        <Center flexWrap={"wrap"} w="100%" gap={8} justifyContent="center">
+          {reflections?.map((t, index) => (
+            <ReflectionList key={index} data={t} index={index} />
+          ))}
+        </Center>
+      </Box>
     </Center>
   );
 };

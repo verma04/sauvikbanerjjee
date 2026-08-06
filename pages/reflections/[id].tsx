@@ -12,7 +12,7 @@ const ReflectionDetail = ({ data, reflections }) => {
       <Head>
         <title>{data?.title} | Reflections | Sauvik Banerjjee</title>
         <meta name="description" content={data?.title}></meta>
-        <meta property="og:image" content={data?.mainImage?.asset?.url} />
+        <meta property="og:image" content={data?.mainImage?.asset?.url || "/Sauvik_Banerjjee_OgImage.png"} />
       </Head>
       <ReflectionView data={data} reflections={reflections} />
     </PageLayout>
@@ -21,13 +21,18 @@ const ReflectionDetail = ({ data, reflections }) => {
 
 export async function getStaticPaths() {
   async function getContent() {
-    const CONTENT_QUERY = `*[_type == "post"] {
+    const CONTENT_QUERY = `*[_type == "reflection"] {
   ...,
   author->,
   mainImage {
     ...,
     asset->
   },
+  mainVideo {
+    ...,
+    asset->
+  },
+  videoUrl,
   categories[]->,
   body
 }
@@ -38,7 +43,7 @@ export async function getStaticPaths() {
 
   const reflections = await getContent();
 
-  const paths = reflections?.map((t: any) => {
+  const paths = (reflections || [])?.map((t: any) => {
     return {
       params: { id: t.slug.current },
     };
@@ -51,29 +56,39 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]{
+  const REFLECTION_QUERY = `*[_type == "reflection" && slug.current == $slug][0]{
   ...,
   author->,
   mainImage {
     ...,
     asset->
   },
+  mainVideo {
+    ...,
+    asset->
+  },
+  videoUrl,
   categories[]->,
   body
 }`;
 
-  const post = await client.fetch<SanityDocument>(POST_QUERY, {
+  const reflection = await client.fetch<SanityDocument>(REFLECTION_QUERY, {
     slug: params.id,
   });
 
   async function getContent() {
-    const CONTENT_QUERY = `*[_type == "post"] {
+    const CONTENT_QUERY = `*[_type == "reflection"] {
   ...,
   author->,
   mainImage {
     ...,
     asset->
   },
+  mainVideo {
+    ...,
+    asset->
+  },
+  videoUrl,
   categories[]->,
   body
 }
@@ -86,8 +101,8 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: {
-      data: post,
-      reflections: reflections,
+      data: reflection || null,
+      reflections: reflections || [],
     },
     revalidate: 1,
   };

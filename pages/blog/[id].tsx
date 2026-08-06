@@ -31,6 +31,11 @@ export async function getStaticPaths() {
     ...,
     asset->
   },
+  mainVideo {
+    ...,
+    asset->
+  },
+  videoUrl,
   categories[]->,
   body
 }
@@ -61,6 +66,11 @@ export const getStaticProps = async ({ params }) => {
     ...,
     asset->
   },
+  mainVideo {
+    ...,
+    asset->
+  },
+  videoUrl,
   categories[]->,
   body
 }`;
@@ -76,6 +86,11 @@ export const getStaticProps = async ({ params }) => {
     ...,
     asset->
   },
+  mainVideo {
+    ...,
+    asset->
+  },
+  videoUrl,
   categories[]->,
   body
 }

@@ -202,8 +202,9 @@ const FooterContact = () => {
             justifyContent={"center"}
           >
             Powered by
-            <a target="_blank" href="https://pulseplaydigital.com/">
+            <a target="_blank" href="https://pulseplaydigital.com/" rel="noreferrer noopener">
               <Text
+                as="span"
                 ml="0.3rem"
                 _hover={{ color: "#2981E2" }}
                 textDecorationLine={"underline"}

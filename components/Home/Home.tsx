@@ -13,21 +13,32 @@ const LandingMobile = dynamic(() => import("./Landing/LandingMobile"), {
 import Media from "./Landing/Media";
 
 import Poster from "./Landing/Poster";
-import SocialMedia from "./Landing/SocialMedia";
+const SocialMedia = dynamic(() => import("./Landing/SocialMedia"), {
+  ssr: false,
+});
 import Futurism from "./Landing/Futurism";
 import Narrative from "../narrative/Narrative";
-import { isDesktop } from "react-device-detect";
 import NarrativeDesktop from "../newNarative/Narrative";
 
 const Home = () => {
   const myRef = React.useRef(null);
   const [loading, setLoading] = useState(true);
   const [landing, setLanding] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setLoading(false);
     }, 1500);
-  }, [loading]);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    setIsClient(true);
+    setIsDesktop(window.innerWidth >= 1024);
+  }, []);
+
   //@ts-ignore
   const executeScroll = () => myRef?.current?.scrollIntoView();
   return (
@@ -49,7 +60,7 @@ const Home = () => {
         {landing && (
           <>
             <section ref={myRef} className="snap-scroll">
-              {isDesktop ? <NarrativeDesktop /> : <Narrative />}
+              {isClient && (isDesktop ? <NarrativeDesktop /> : <Narrative />)}
             </section>
             <section className="snap-scroll">
               <Media />
@@ -60,7 +71,7 @@ const Home = () => {
             <section className="snap-scroll">
               <Futurism />
             </section>
-            {isDesktop && (
+            {isClient && isDesktop && (
               <section className="snap-scroll">
                 <SocialMedia />
               </section>

@@ -1,6 +1,5 @@
 import { Table, TableCaption, TableContainer, Th, Thead, Tr, Tbody, Td, Box, Heading, Center, ListItem, UnorderedList, Flex } from '@chakra-ui/react'
 import React from 'react'
-import { isDesktop, isMobile } from 'react-device-detect'
 
 const MentorshipCategories = ({ data }) => {
     const [active, setActive] = React.useState('professional')
@@ -24,7 +23,7 @@ const MentorshipCategories = ({ data }) => {
                             <Box ml="1rem" mt="1rem" mb="1rem">
                                 <UnorderedList>
                                     {data.professional.map(t =>
-                                        <ListItem pt="1rem" color="white" >{t}</ListItem>
+                                            <ListItem key={idx} pt="1rem" color="white" >{t}</ListItem>
                                     )
 
                                     }
@@ -32,7 +31,7 @@ const MentorshipCategories = ({ data }) => {
 
                                 </UnorderedList>
                             </Box>
-                        </Flex>
+                                            <ListItem key={idx} pt="1rem" color="white" >{t}</ListItem>
 
                         <Flex flexDirection={"column"} width={"48%"} border="1px solid white" >
                             <Center backgroundColor="white" width={"100%"} alignItems="center" display={"flex"} height="4rem" >
@@ -54,7 +53,7 @@ const MentorshipCategories = ({ data }) => {
 
                                 </UnorderedList>
                             </Box>
-                        </Flex>
+                                    <ListItem key={idx} pt="1rem" color="white" >{t}</ListItem>
 
 
                     </Flex>
@@ -90,7 +89,7 @@ const MentorshipCategories = ({ data }) => {
 
                                 </UnorderedList>
                                 :
-                                <UnorderedList>
+                                            <ListItem key={idx} pt="1rem" color="white" >{t}</ListItem>
                                     {data.personal.map(t =>
                                         <ListItem pt="1rem" color="white" >{t}</ListItem>
                                     )

@@ -49,12 +49,15 @@ const VedioGallery = () => {
         ))}
 
         {active * 3 < vedioData.length && (
-          <Center width={"100%"} mt="2rem">
+          <Box display="flex" justifyContent="center" width="100%" mt="2.5rem">
             <Button
               onClick={() => setActive(active + 1)}
-              px="2.5rem"
-              py="1.5rem"
-              fontSize="1.1rem"
+              w="auto"
+              px="2rem"
+              py="0.8rem"
+              h="auto"
+              fontSize="0.95rem"
+              fontWeight="600"
               borderRadius="full"
               bg="whiteAlpha.100"
               color="white"
@@ -69,7 +72,7 @@ const VedioGallery = () => {
             >
               Load More Videos
             </Button>
-          </Center>
+          </Box>
         )}
       </Center>
 
@@ -100,12 +103,15 @@ const VedioGallery = () => {
         ))}
 
         {active2 * 3 < news.length && (
-          <Center width={"100%"} mt="2rem">
+          <Box display="flex" justifyContent="center" width="100%" mt="2.5rem">
             <Button
               onClick={() => setActive2(active2 + 1)}
-              px="2.5rem"
-              py="1.5rem"
-              fontSize="1.1rem"
+              w="auto"
+              px="2rem"
+              py="0.8rem"
+              h="auto"
+              fontSize="0.95rem"
+              fontWeight="600"
               borderRadius="full"
               bg="whiteAlpha.100"
               color="white"
@@ -120,7 +126,7 @@ const VedioGallery = () => {
             >
               Load More News
             </Button>
-          </Center>
+          </Box>
         )}
       </Center>
     </Box>

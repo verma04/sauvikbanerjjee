@@ -11,16 +11,19 @@ const shimmer = keyframes`
   100% { background-position: 200% 0; }
 `;
 
-const List = ({ data, index }) => {
+const List = ({ data, index, width }: any) => {
   const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const categoryColor = getCategoryColor(data?.categories?.[0]?.title || "");
 
+  const imageUrl = data?.mainImage?.asset?.url;
+  const videoUrl = data?.mainVideo?.asset?.url || data?.videoUrl;
+
   return (
     <Box
-      width={["100%", "100%", "calc(50% - 2rem)", "calc(33.333% - 2rem)"]}
+      width={width || ["100%", "100%", "calc(50% - 2rem)", "calc(33.333% - 2rem)"]}
       maxW="420px"
       cursor="pointer"
       onClick={() => router.push(`/blog/${data?.slug?.current}`)}
@@ -58,7 +61,7 @@ const List = ({ data, index }) => {
           pointerEvents: "none",
         }}
       >
-        {/* Image Container */}
+        {/* Media Container (Image or Video) */}
         <Box position="relative" width="100%" height="220px" overflow="hidden">
           {/* Shimmer loading placeholder */}
           {!imageLoaded && (
@@ -73,19 +76,50 @@ const List = ({ data, index }) => {
             />
           )}
 
-          <Image
-            alt={data?.title || "Blog post"}
-            src={data?.mainImage?.asset?.url}
-            fill
-            style={{
-              objectFit: "cover",
-              transition: "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-              transform: isHovered ? "scale(1.08)" : "scale(1)",
-            }}
-            onLoadingComplete={() => setImageLoaded(true)}
-          />
+          {imageUrl ? (
+            <Image
+              alt={data?.title || "Blog post"}
+              src={imageUrl}
+              fill
+              style={{
+                objectFit: "cover",
+                transition: "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                transform: isHovered ? "scale(1.08)" : "scale(1)",
+              }}
+              onLoadingComplete={() => setImageLoaded(true)}
+            />
+          ) : videoUrl ? (
+            <video
+              src={videoUrl}
+              autoPlay
+              loop
+              muted
+              playsInline
+              onLoadedData={() => setImageLoaded(true)}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                transition: "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                transform: isHovered ? "scale(1.08)" : "scale(1)",
+              }}
+            />
+          ) : (
+            <Box
+              w="100%"
+              h="100%"
+              bgGradient="linear(to-br, #1e1b4b, #0f172a)"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Text color="purple.300" fontSize="2rem">
+                ✍️
+              </Text>
+            </Box>
+          )}
 
-          {/* Image overlay gradient */}
+          {/* Media overlay gradient */}
           <Box
             position="absolute"
             bottom={0}
@@ -96,6 +130,32 @@ const List = ({ data, index }) => {
             zIndex={2}
             pointerEvents="none"
           />
+
+          {/* Video indicator badge if video is rendered */}
+          {!imageUrl && videoUrl && (
+            <Box
+              position="absolute"
+              top="1rem"
+              right="1rem"
+              zIndex={3}
+              bg="blackAlpha.700"
+              backdropFilter="blur(8px)"
+              color="purple.300"
+              px="0.6rem"
+              py="0.2rem"
+              borderRadius="full"
+              fontSize="0.65rem"
+              fontWeight={600}
+              letterSpacing="0.05em"
+              border="1px solid"
+              borderColor="purple.400"
+              display="flex"
+              alignItems="center"
+              gap="0.3rem"
+            >
+              <span>▶</span> VIDEO
+            </Box>
+          )}
 
           {/* Category badge on image */}
           {data?.categories?.[0]?.title && (

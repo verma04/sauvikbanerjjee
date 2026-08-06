@@ -1,15 +1,18 @@
 import { defineField, defineType } from 'sanity'
 
-export default defineType({
-  name: 'post',
-  title: 'Post',
+export const reflectionType = defineType({
+  name: 'reflection',
+  title: 'Reflection',
   type: 'document',
+
   fields: [
     defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: Rule => Rule.required(),
     }),
+
     defineField({
       name: 'slug',
       title: 'Slug',
@@ -18,16 +21,19 @@ export default defineType({
         source: 'title',
         maxLength: 96,
       },
+      validation: Rule => Rule.required(),
     }),
+
     defineField({
       name: 'author',
       title: 'Author',
       type: 'reference',
-      to: { type: 'author' },
+      to: [{ type: 'author' }],
     }),
+
     defineField({
       name: 'mainImage',
-      title: 'Main image',
+      title: 'Main Image',
       type: 'image',
       options: {
         hotspot: true,
@@ -35,11 +41,12 @@ export default defineType({
       fields: [
         {
           name: 'alt',
-          type: 'string',
           title: 'Alternative Text',
-        }
-      ]
+          type: 'string',
+        },
+      ],
     }),
+
     defineField({
       name: 'mainVideo',
       title: 'Main Video File',
@@ -49,23 +56,27 @@ export default defineType({
         accept: 'video/*',
       },
     }),
+
     defineField({
       name: 'videoUrl',
       title: 'Video URL (Alternative to Video File upload)',
       type: 'url',
       description: 'Direct video link (e.g. MP4 URL). Displayed if Main Image is not provided.',
     }),
+
     defineField({
       name: 'categories',
       title: 'Categories',
       type: 'array',
-      of: [{ type: 'reference', to: { type: 'category' } }],
+      of: [{ type: 'reference', to: [{ type: 'category' }] }],
     }),
+
     defineField({
       name: 'publishedAt',
-      title: 'Published at',
+      title: 'Published At',
       type: 'datetime',
     }),
+
     defineField({
       name: 'body',
       title: 'Body',
@@ -79,9 +90,12 @@ export default defineType({
       author: 'author.name',
       media: 'mainImage',
     },
-    prepare(selection) {
-      const { author } = selection
-      return { ...selection, subtitle: author && `by ${author}` }
+    prepare({ title, author, media }) {
+      return {
+        title,
+        subtitle: author ? `by ${author}` : '',
+        media,
+      }
     },
   },
 })

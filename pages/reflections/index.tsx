@@ -25,15 +25,19 @@ const ReflectionsPage = ({ reflections }) => {
 
 export async function getStaticProps() {
   async function getContent() {
-    // Fetches posts from Sanity — same dataset, same "post" type as Blog
-    // The Reflections module reuses blog post data from Sanity
-    const CONTENT_QUERY = `*[_type == "post"] | order(publishedAt desc) {
+    // Fetches reflection entries from Sanity using the "reflection" document schema
+    const CONTENT_QUERY = `*[_type == "reflection"] | order(publishedAt desc) {
   ...,
   author->,
   mainImage {
     ...,
     asset->
   },
+  mainVideo {
+    ...,
+    asset->
+  },
+  videoUrl,
   categories[]->,
   body
 }
@@ -46,7 +50,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      reflections: reflections,
+      reflections: reflections || [],
     },
     revalidate: 1,
   };

@@ -2,27 +2,23 @@ import { Container, chakra, shouldForwardProp } from '@chakra-ui/react';
 import { motion, isValidMotionProp } from 'framer-motion';
 
 const ChakraBox = chakra(motion.div, {
-    /**
-     * Allow motion props and non-Chakra props to be forwarded.
-     */
     shouldForwardProp: (prop) => isValidMotionProp(prop) || shouldForwardProp(prop),
 });
 
-
-
 const ChakraHeading = chakra(motion.h2, {
-    /**
-     * Allow motion props and non-Chakra props to be forwarded.
-     */
+    shouldForwardProp: (prop) => isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+const ChakraText = chakra(motion.p, {
+    shouldForwardProp: (prop) => isValidMotionProp(prop) || shouldForwardProp(prop),
+});
+
+const ChakraFlex = chakra(motion.div, {
     shouldForwardProp: (prop) => isValidMotionProp(prop) || shouldForwardProp(prop),
 });
 
 const ChakraSvg = chakra(motion.svg, {
-    /**
-     * Allow motion props and non-Chakra props to be forwarded.
-     */
     shouldForwardProp: (prop) => isValidMotionProp(prop) || shouldForwardProp(prop),
 });
 
-
-export { ChakraBox, ChakraHeading, ChakraSvg }
+export { ChakraBox, ChakraHeading, ChakraText, ChakraFlex, ChakraSvg };

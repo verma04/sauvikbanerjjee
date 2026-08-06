@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PageLayout from '../components/Header/PageLayout'
 
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import NarrativeDesktop from '../components/newNarative/Narrative'
-import Narrative from '../components/narrative/Narrative'
-import { isDesktop } from 'react-device-detect'
 
+const NarrativeDesktop = dynamic(
+  () => import('../components/newNarative/Narrative'),
+  { ssr: false }
+)
+const Narrative = dynamic(
+  () => import('../components/narrative/Narrative'),
+  { ssr: false }
+)
 
-const narrative = () => {
+const NarrativePage = () => {
+  const [canRender, setCanRender] = useState(false)
+  const [desktop, setDesktop] = useState(false)
+
+  useEffect(() => {
+    setCanRender(true)
+    setDesktop(window.innerWidth >= 1024)
+  }, [])
+
   return (
 
     <PageLayout>
