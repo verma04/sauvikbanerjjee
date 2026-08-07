@@ -10,6 +10,7 @@ import Image from "next/image";
 import ReflectionList from "../List";
 import { PortableText } from "@portabletext/react";
 import moment from "moment";
+import SocialShare from "../../common/SocialShare";
 
 const MotionBox: any = motion(Box as any);
 const MotionHeading: any = motion(Heading as any);
@@ -98,6 +99,7 @@ const ReflectionView = ({ data, reflections }) => {
         pointerEvents="none"
         zIndex={0}
       />
+
 
       {/* Featured Media Section in Container */}
       <Box
@@ -372,6 +374,13 @@ const ReflectionView = ({ data, reflections }) => {
           >
             <PortableText value={data?.body} />
           </Box>
+
+          {/* Social Share Bar (End of paragraph / article) */}
+          <SocialShare
+            title={data?.title}
+            accentColor="#fde68a"
+            hoverBg="rgba(251,191,36,0.15)"
+          />
         </MotionBox>
 
         {/* Bottom decorative divider */}
