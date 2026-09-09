@@ -32,6 +32,25 @@ export const podcastData = [
     fullUrl: "https://www.youtube.com/watch?v=xmb0J0YdFh0",
     tag: "Podcast",
   },
+  {
+    id: "bCpO-GI8RtM",
+    title: "Adobe Leadership Series - Saurav Ganguly & Sauvik Banerjjee ",
+    text: "Adobe Leadership Series - Saurav Ganguly & Sauvik Banerjjee ",
+    url: "bCpO-GI8RtM",
+    fullUrl: "https://www.youtube.com/watch?v=bCpO-GI8RtM",
+    tag: "Podcast",
+  },
+  {
+    id: "oQZJIpqP18k",
+    title: "ETCIO and Adobe powers Mandira Bedi interviewing Sauvik Banerjjee - CTO - Tata Digital on experience",
+    text: "ETCIO and Adobe powers Mandira Bedi interviewing Sauvik Banerjjee - CTO - Tata Digital on experience",
+    url: "oQZJIpqP18k",
+    fullUrl: "https://www.youtube.com/watch?v=oQZJIpqP18k",
+    tag: "Podcast",
+  },
 ];
+
+
+
 
 export default podcastData;

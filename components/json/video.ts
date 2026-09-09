@@ -1,14 +1,5 @@
 const vedioData = [
-  {
-    text: "Sauvik Banerjjee MD & CEO of Ziki & Sirrus.Ai A Design first  with Saurabh Gupta from Zeux (Inn)",
-    img: "/AI_Year_Milestone.jpeg",
-    url: "3H5HL0UMFhg",
-  },
-  {
-    text: "Revolutionizing Smart Living with Sirrus.ai & Ziki | Sauvik Banerjjee on Get Candid with Chitvan ",
-    img: "/AI_Year_Milestone.jpeg",
-    url: "xmb0J0YdFh0",
-  },
+
   {
     text: "Agentic AI: Shaping Improved Business Outcomes | HYSEA National Summit 2025 | Panel Discussion ",
     img: "/AI_Year_Milestone.jpeg",
@@ -31,20 +22,7 @@ const vedioData = [
     url: "K5hFlVMlL48",
   },
 
-  {
-    text: "Adobe Leadership Series - Saurav Ganguly & Sauvik Banerjjee",
-    img: "/Adobe Leadership Series.png",
-    url: "bCpO-GI8RtM",
-  },
 
-  {
-    text: `ETCIO and Adobe powers Mandira Bedi 
-interviewing Sauvik Banerjjee - CTO - 
-Tata Digital on experience`,
-
-    img: "/Adobe powers Mandira Bedi.png",
-    url: "oQZJIpqP18k",
-  },
   {
     text: "The Tech Rulebook In Retail",
 

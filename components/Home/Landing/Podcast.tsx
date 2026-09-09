@@ -179,9 +179,17 @@ const Podcast = () => {
         </Box>
 
         {/* View All Podcasts / Media Button */}
-        <Box zIndex={2} mb={{ base: "1.5rem", md: "2vh" }}>
+        <Box zIndex={2} mt={{ base: "1.5rem", md: "2rem" }} mb={{ base: "1.5rem", md: "2vh" }}>
           <NextLink href="/podcast">
-            <Button variant="white">View All Podcasts</Button>
+            <Button
+              variant="white"
+              px={{ base: "1.8rem", md: "2.5rem" }}
+              py={{ base: "0.6rem", md: "0.8rem" }}
+              letterSpacing="wider"
+              size="lg"
+            >
+              View All Podcasts
+            </Button>
           </NextLink>
         </Box>
 
