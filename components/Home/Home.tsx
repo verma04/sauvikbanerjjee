@@ -11,6 +11,7 @@ const LandingMobile = dynamic(() => import("./Landing/LandingMobile"), {
   ssr: false,
 });
 import Media from "./Landing/Media";
+import Podcast from "./Landing/Podcast";
 
 import Poster from "./Landing/Poster";
 const SocialMedia = dynamic(() => import("./Landing/SocialMedia"), {
@@ -61,6 +62,9 @@ const Home = () => {
           <>
             <section ref={myRef} className="snap-scroll">
               {isClient && (isDesktop ? <NarrativeDesktop /> : <Narrative />)}
+            </section>
+            <section className="snap-scroll">
+              <Podcast />
             </section>
             <section className="snap-scroll">
               <Media />

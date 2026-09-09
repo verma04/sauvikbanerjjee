@@ -34,8 +34,8 @@ const Narrative = () => {
 
   const [image, setImage] = useState(data[0].link);
   const opts: YouTubeProps["opts"] = {
-    width: "350",
-    height: "200",
+    width: "100%",
+    height: "190",
   };
   const onPlayerReady: YouTubeProps["onReady"] = (event) => {
     // access to player in all event handlers via event.target
@@ -61,7 +61,7 @@ const Narrative = () => {
       overflow={"hidden"}
     >
       <Box
-        mt="10vh"
+        mt={["6vh", "8vh", "10vh", "10vh"]}
         width={"100%"}
         display="flex"
         justifyContent={"center"}
@@ -72,18 +72,14 @@ const Narrative = () => {
         </Heading>
       </Box>
 
-      <Center width={"100%"} mt="2rem" mb="3rem" position="relative">
-        <Center width={"100%"} height={"20vh"} position="relative">
-          {/* <App /> */}
-
+      <Center width={"90%"} maxW="380px" mx="auto" my="1rem" position="relative">
+        <Box width={"100%"} borderRadius="xl" overflow="hidden" position="relative">
           <YouTube videoId={image} opts={opts} onReady={onPlayerReady} />
-        </Center>
+        </Box>
       </Center>
 
       <Box>
-        {active.name !== "Season 3" && (
-          <Season1 setImage={setImage} list={active.list} />
-        )}
+        <Season1 setImage={setImage} list={active.list} />
       </Box>
 
       <Center
