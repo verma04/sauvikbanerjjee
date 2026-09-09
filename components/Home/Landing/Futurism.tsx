@@ -212,7 +212,8 @@ export default function SocialMedia() {
       ref={slider}
       className="container"
       w={"100%"}
-      height={"100svh"}>
+      height={"100svh"}
+    >
 
       <Center
         justifyContent={"center"}

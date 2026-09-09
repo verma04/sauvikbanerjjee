@@ -175,7 +175,7 @@ const ReflectionView = ({ data, reflections }) => {
             zIndex={3}
           >
             <Flex
-              as="button"
+               as="button"
               onClick={() => router.push("/reflections")}
               alignItems="center"
               gap="0.6rem"

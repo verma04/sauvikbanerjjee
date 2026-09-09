@@ -58,19 +58,20 @@ const Podcast = () => {
         display="flex"
         flexDirection="column"
         alignItems="center"
-        justifyContent="space-between"
-        py={{ base: "1.5rem", md: "3vh" }}
+        justifyContent={{ base: "center", md: "space-between" }}
+        pt={{ base: "5.5rem", sm: "6rem", md: "3vh" }}
+        pb={{ base: "2.5rem", md: "3vh" }}
         px={{ base: "1rem", sm: "1.5rem", md: "3rem", lg: "5rem" }}
       >
         {/* Title Section */}
         <Box
           textAlign="center"
-          mt={{ base: "1rem", md: "3vh" }}
-          mb={{ base: "0.75rem", md: "0" }}
+          mt={{ base: "0", md: "2vh" }}
+          mb={{ base: "1.25rem", md: "0" }}
           zIndex={2}
         >
           <Heading
-            fontSize={{ base: "1.8rem", sm: "2.2rem", md: "6.5vh", lg: "7.5vh" }}
+            fontSize={{ base: "2rem", sm: "2.5rem", md: "6.5vh", lg: "7.5vh" }}
             color="white"
             fontFamily="Bebas Neue"
             letterSpacing="wider"
@@ -80,9 +81,9 @@ const Podcast = () => {
           </Heading>
           <Text
             color="gray.300"
-            fontSize={{ base: "0.75rem", sm: "0.85rem", md: "1rem", lg: "1.1rem" }}
+            fontSize={{ base: "0.8rem", sm: "0.9rem", md: "1rem", lg: "1.1rem" }}
             fontWeight="300"
-            mt="0.1rem"
+            mt="0.2rem"
             letterSpacing="wide"
           >
             Featured Conversations & Interviews
