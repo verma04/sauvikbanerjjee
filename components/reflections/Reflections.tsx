@@ -11,15 +11,19 @@ const Reflections = ({ reflections }) => {
 
   return (
     <Center
-      bgImage={"/mybookBackground.png"}
+      bgImage={"url('/mybookBackground.png')"}
+      bgSize="cover"
+      bgPosition="center"
+      bgRepeat="no-repeat"
+      bgAttachment="fixed"
       minHeight={"100svh"}
       width="100vw"
       bgColor={"black"}
       alignItems="center"
       flexDirection={"column"}
     >
-      <Box w="100%" maxW="1250px" mx="auto" mt={["6rem", "7rem"]} px={["1rem", "2rem", "3rem"]} py={6}>
-        <Center flexWrap={"wrap"} w="100%" gap={8} justifyContent="center">
+      <Box w="100%" maxW="1550px" mx="auto" mt={["6rem", "7rem"]} px={["1rem", "1.5rem", "2rem"]} py={6}>
+        <Center flexWrap={"wrap"} w="100%" gap={6} justifyContent="center">
           {reflections?.map((t, index) => (
             <ReflectionList key={index} data={t} index={index} />
           ))}

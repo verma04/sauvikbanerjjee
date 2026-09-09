@@ -13,7 +13,6 @@ const shimmer = keyframes`
 
 const List = ({ data, index, width }: any) => {
   const router = useRouter();
-  const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const categoryColor = getCategoryColor(data?.categories?.[0]?.title || "");
@@ -23,28 +22,26 @@ const List = ({ data, index, width }: any) => {
 
   return (
     <Box
-      width={width || ["100%", "100%", "calc(50% - 2rem)", "calc(33.333% - 2rem)"]}
-      maxW="420px"
+      width={width || ["100%", "calc(50% - 1.5rem)", "calc(33.333% - 1.5rem)", "calc(25% - 1.5rem)"]}
+      maxW="360px"
       cursor="pointer"
       onClick={() => router.push(`/blog/${data?.slug?.current}`)}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       role="group"
-      transition="all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)"
-      transform={isHovered ? "translateY(-8px)" : "translateY(0)"}
     >
       <Box
         bg="whiteAlpha.50"
         borderRadius="1.2rem"
         overflow="hidden"
         border="1px solid"
-        borderColor={isHovered ? "whiteAlpha.200" : "whiteAlpha.50"}
-        transition="all 0.4s ease"
-        boxShadow={
-          isHovered
-            ? "0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(139,92,246,0.08)"
-            : "0 4px 20px rgba(0,0,0,0.2)"
-        }
+        borderColor="whiteAlpha.50"
+        boxShadow="0 4px 20px rgba(0,0,0,0.2)"
+        transition="all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+        willChange="transform"
+        _hover={{
+          transform: "translateY(-6px)",
+          borderColor: "whiteAlpha.200",
+          boxShadow: "0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(139,92,246,0.12)",
+        }}
         position="relative"
         _before={{
           content: '""',
@@ -54,15 +51,34 @@ const List = ({ data, index, width }: any) => {
           right: 0,
           bottom: 0,
           borderRadius: "1.2rem",
-          bg: "linear-gradient(135deg, rgba(139,92,246,0.05) 0%, transparent 50%, rgba(59,130,246,0.05) 100%)",
-          opacity: isHovered ? 1 : 0,
+          bg: "linear-gradient(135deg, rgba(139,92,246,0.08) 0%, transparent 50%, rgba(59,130,246,0.08) 100%)",
+          opacity: 0,
           transition: "opacity 0.4s ease",
           zIndex: 0,
           pointerEvents: "none",
         }}
+        _groupHover={{
+          _before: {
+            opacity: 1,
+          },
+        }}
       >
         {/* Media Container (Image or Video) */}
-        <Box position="relative" width="100%" height="220px" overflow="hidden">
+        <Box
+          position="relative"
+          width="100%"
+          height="200px"
+          overflow="hidden"
+          sx={{
+            "& img, & video": {
+              transition: "transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+              willChange: "transform",
+            },
+            "[role='group']:hover & img, [role='group']:hover & video": {
+              transform: "scale(1.06)",
+            },
+          }}
+        >
           {/* Shimmer loading placeholder */}
           {!imageLoaded && (
             <Box
@@ -81,11 +97,7 @@ const List = ({ data, index, width }: any) => {
               alt={data?.title || "Blog post"}
               src={imageUrl}
               fill
-              style={{
-                objectFit: "cover",
-                transition: "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                transform: isHovered ? "scale(1.08)" : "scale(1)",
-              }}
+              style={{ objectFit: "cover" }}
               onLoadingComplete={() => setImageLoaded(true)}
             />
           ) : videoUrl ? (
@@ -100,8 +112,6 @@ const List = ({ data, index, width }: any) => {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                transition: "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                transform: isHovered ? "scale(1.08)" : "scale(1)",
               }}
             />
           ) : (
@@ -221,8 +231,12 @@ const List = ({ data, index, width }: any) => {
               alignItems="center"
               gap="0.4rem"
               transition="all 0.3s ease"
-              opacity={isHovered ? 1 : 0.5}
-              transform={isHovered ? "translateX(0)" : "translateX(-4px)"}
+              opacity={0.6}
+              transform="translateX(-4px)"
+              _groupHover={{
+                opacity: 1,
+                transform: "translateX(0)",
+              }}
             >
               <Text
                 fontSize="0.72rem"
@@ -237,7 +251,9 @@ const List = ({ data, index, width }: any) => {
                 color="purple.300"
                 fontSize="0.85rem"
                 transition="transform 0.3s ease"
-                transform={isHovered ? "translateX(3px)" : "translateX(0)"}
+                _groupHover={{
+                  transform: "translateX(3px)",
+                }}
               >
                 →
               </Text>

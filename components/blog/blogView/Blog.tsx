@@ -10,6 +10,7 @@ import Image from "next/image";
 import List from "../List";
 import { PortableText } from "@portabletext/react";
 import moment from "moment";
+import SocialShare from "../../common/SocialShare";
 
 const MotionBox: any = motion(Box as any);
 const MotionHeading: any = motion(Heading as any);
@@ -100,6 +101,7 @@ const BlogView = ({ data, blogs }) => {
         pointerEvents="none"
         zIndex={0}
       />
+
 
       {/* Featured Media Section in Container */}
       <Box
@@ -415,6 +417,13 @@ const BlogView = ({ data, blogs }) => {
           >
             <PortableText value={data?.body} />
           </Box>
+
+          {/* Social Share Bar (End of paragraph / article) */}
+          <SocialShare
+            title={data?.title}
+            accentColor="#a78bfa"
+            hoverBg="rgba(139,92,246,0.15)"
+          />
         </MotionBox>
 
         {/* Bottom decorative divider */}
