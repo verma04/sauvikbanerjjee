@@ -30,6 +30,7 @@ const Hamburger = ({ state }) => {
   let line8 = useRef(null);
   let line9 = useRef(null);
   let line10 = useRef(null);
+  let line11 = useRef(null);
   let info = useRef(null);
 
   const data = [{ name: "Home", image: "/", ref: { line1 } }];
@@ -66,7 +67,8 @@ const Hamburger = ({ state }) => {
         line7,
         line8,
         line9,
-        line10
+        line10,
+        line11
       );
     }
   }, [state]);
@@ -170,12 +172,24 @@ const Hamburger = ({ state }) => {
                     </NextLink>
                   </li>
                   <li>
-                    <NextLink href="/media">
+                    <NextLink href="/podcast">
                       <Heading
                         _hover={{
                           color: "#2981E2",
                         }}
                         ref={(el) => (line7 = el)}
+                      >
+                        Podcast
+                      </Heading>
+                    </NextLink>
+                  </li>
+                  <li>
+                    <NextLink href="/media">
+                      <Heading
+                        _hover={{
+                          color: "#2981E2",
+                        }}
+                        ref={(el) => (line8 = el)}
                       >
                         Media
                       </Heading>
@@ -187,7 +201,7 @@ const Hamburger = ({ state }) => {
                         _hover={{
                           color: "#2981E2",
                         }}
-                        ref={(el) => (line8 = el)}
+                        ref={(el) => (line9 = el)}
                       >
                         Blog
                       </Heading>
@@ -200,7 +214,7 @@ const Hamburger = ({ state }) => {
                         _hover={{
                           color: "#2981E2",
                         }}
-                        ref={(el) => (line9 = el)}
+                        ref={(el) => (line10 = el)}
                       >
                         Reflections
                       </Heading>
@@ -213,7 +227,7 @@ const Hamburger = ({ state }) => {
                         _hover={{
                           color: "#2981E2",
                         }}
-                        ref={(el) => (line10 = el)}
+                        ref={(el) => (line11 = el)}
                       >
                         Contact
                       </Heading>

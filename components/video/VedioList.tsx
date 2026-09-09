@@ -1,13 +1,24 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import { Heading, Text, Box, Flex } from "@chakra-ui/react";
-import ReactPlayer from "react-player/youtube";
+import dynamic from "next/dynamic";
 import { isTablet } from "react-device-detect";
 
+const ReactPlayer = dynamic(() => import("react-player/youtube"), {
+  ssr: false,
+});
+
 const VideoList = ({ data, index }) => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <Box
       //@ts-ignore
-      style={{ width: isTablet ? "50%" : undefined }}
+      style={{ width: isClient && isTablet ? "50%" : undefined }}
       mb="3rem"
       p="1rem"
       width={["100%", "100%", "50%", "33.333%"]}
@@ -35,14 +46,20 @@ const VideoList = ({ data, index }) => {
         role="group"
       >
         <Box width={"100%"} height="14rem" bg="black" position={"relative"}>
-          <ReactPlayer
-            width="100%"
-            height="100%"
-            url={`https://www.youtube.com/watch?v=${data.url}`}
-            controls={true}
-            light={false}
-            style={{ position: "absolute", top: 0, left: 0 }}
-          />
+          {isClient && (
+            <ReactPlayer
+              width="100%"
+              height="100%"
+              url={
+                data.url?.startsWith("http")
+                  ? data.url
+                  : `https://www.youtube.com/watch?v=${data.url}`
+              }
+              controls={true}
+              light={false}
+              style={{ position: "absolute", top: 0, left: 0 }}
+            />
+          )}
         </Box>
 
         <Flex direction="column" flex="1" p="1.5rem">
@@ -63,7 +80,7 @@ const VideoList = ({ data, index }) => {
                 letterSpacing="widest"
                 textTransform="uppercase"
               >
-                Video clip
+                {data.tag || "Video clip"}
               </Text>
             </Flex>
             <Heading
@@ -74,7 +91,7 @@ const VideoList = ({ data, index }) => {
               fontWeight="600"
               noOfLines={3}
             >
-              {data.text}
+              {data.text || data.title}
             </Heading>
           </Box>
         </Flex>

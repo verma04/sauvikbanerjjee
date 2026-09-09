@@ -13,26 +13,11 @@ import {
 import dynamic from "next/dynamic";
 import { NextLink } from "../../../NextLink/NextLink";
 
+import { podcastData } from "../../json/podcast";
+
 const ReactPlayer = dynamic(() => import("react-player/youtube"), {
   ssr: false,
 });
-
-const podcastData = [
-  {
-    id: "XwawXRaNfzM",
-    title:
-      "Top CTO's Advice: The Real Reason You Are Not Growing | Sauvik Banerjjee | FO558 Raj Shamani",
-
-    url: "https://www.youtube.com/watch?v=XwawXRaNfzM",
-  },
-  {
-    id: "NOmvwHaD4ZI",
-    title: "AI Expert WARNING : We Have 10 Years Left 🚨",
-
-    url: "https://www.youtube.com/watch?v=NOmvwHaD4ZI",
-
-  },
-];
 
 const Podcast = () => {
   const [isClient, setIsClient] = useState(false);
@@ -113,21 +98,22 @@ const Podcast = () => {
           px={{ base: "0", md: "1rem" }}
         >
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: "1rem", md: "2rem" }}>
-            {podcastData.map((item, index) => (
+            {podcastData.slice(0, 2).map((item, index) => (
               <Box
                 key={index}
-                bg="rgba(15, 20, 35, 0.85)"
-                backdropFilter="blur(16px)"
-                border="1px solid rgba(41, 129, 226, 0.4)"
+                bg="white"
                 borderRadius="xl"
                 overflow="hidden"
-                boxShadow="0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(41, 129, 226, 0.2)"
-                transition="all 0.4s ease"
+                style={{
+                  WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+                  transform: "translateZ(0)",
+                }}
+                boxShadow="0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(41, 129, 226, 0.15)"
+                transition="transform 0.3s ease, box-shadow 0.3s ease"
                 _hover={{
-                  transform: "translateY(-4px)",
+                  transform: "translateY(-6px) translateZ(0)",
                   boxShadow:
-                    "0 18px 40px rgba(0, 0, 0, 0.85), 0 0 30px rgba(41, 129, 226, 0.4)",
-                  border: "1px solid rgba(41, 129, 226, 0.8)",
+                    "0 20px 40px rgba(0, 0, 0, 0.35), 0 0 30px rgba(41, 129, 226, 0.3)",
                 }}
                 display="flex"
                 flexDirection="column"
@@ -143,12 +129,12 @@ const Podcast = () => {
                 >
                   {isClient && (
                     <ReactPlayer
-                      url={item.url}
+                      url={item.fullUrl || item.url}
                       width="100%"
                       height="100%"
                       controls={true}
                       light={false}
-                      style={{ position: "absolute", top: 0, left: 0 }}
+                      style={{ position: "absolute", top: 0, left: 0, border: 0, outline: "none" }}
                     />
                   )}
                 </Box>
@@ -159,6 +145,9 @@ const Podcast = () => {
                   p={{ base: "0.85rem", md: "1.25rem" }}
                   flex="1"
                   justifyContent="space-between"
+                  bg="white"
+                  border="none"
+                  outline="none"
                 >
                   <Box>
                     <Flex
@@ -174,7 +163,7 @@ const Podcast = () => {
                     <Heading
                       as="h3"
                       fontSize={{ base: "0.85rem", sm: "0.95rem", md: "1.1rem" }}
-                      color="white"
+                      color="#2981E2"
                       fontWeight="600"
                       lineHeight="1.4"
                       noOfLines={2}
@@ -189,6 +178,11 @@ const Podcast = () => {
         </Box>
 
         {/* View All Podcasts / Media Button */}
+        <Box zIndex={2} mb={{ base: "1.5rem", md: "2vh" }}>
+          <NextLink href="/podcast">
+            <Button variant="white">View All Podcasts</Button>
+          </NextLink>
+        </Box>
 
       </Box>
     </Box>
