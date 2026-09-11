@@ -8,7 +8,7 @@ import { ChakraBox, ChakraHeading } from "../../../lib/Chakra";
 import { Heading } from "@chakra-ui/react";
 
 export default function TextRevel() {
-  const text = "futurism decoded"; // This would normally be passed into this component as a prop!
+  const text = "Human Performance OS in the Age of AI";
 
   const ctrls = useAnimation();
 
@@ -50,7 +50,9 @@ export default function TextRevel() {
     <Heading
       justifyContent={"center"}
       display={"flex"}
+      flexWrap={"wrap"}
       width={"100%"}
+      px={["1rem", "2rem", "4rem", "4rem"]}
       aria-label={text}
       role="heading"
     >
@@ -58,6 +60,7 @@ export default function TextRevel() {
         return (
           <ChakraBox
             ml="2"
+            mr="2"
             display={"flex"}
             justifyContent="center"
             ref={ref}
@@ -74,7 +77,7 @@ export default function TextRevel() {
             {word.split("").map((character, index) => {
               return (
                 <ChakraHeading
-                  fontSize={["2rem", "2rem", "8vh", "8vh"]}
+                  fontSize={["1.5rem", "2rem", "4.5vh", "5.5vh"]}
                   display={"inline-block"}
                   color="white"
                   aria-hidden="true"
