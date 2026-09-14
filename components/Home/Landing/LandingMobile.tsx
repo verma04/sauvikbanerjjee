@@ -80,10 +80,10 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
           backgroundPosition="center"
           backgroundSize={"cover"}
           bgImage={[
-            "/landingBackgroundMobile.png",
-            "/landingBackgroundMobile.png",
-            "/landingBackgroundDesktop.png",
-            "/landingBackgroundDesktop.png",
+            "/banner/splash-screen.png",
+            "/banner/splash-screen.png",
+            "/banner/splash-screen.png",
+            "/banner/splash-screen.png",
           ]}
           position="relative"
         >
@@ -91,7 +91,6 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
             height={"100svh"}
             width={"100%"}
             alignItems="center"
-            background="linear-gradient(to top, transparent 0%, black 100%)"
             justifyContent={"center"}
           >
             <Center height={"100%"} width={"100%"}>
@@ -152,14 +151,23 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
           right={"0%"}
           zIndex={5}
           position={"absolute"}
-          backgroundRepeat={"repeat"}
-          backgroundPosition={!ani ? "center" : "center 22px"}
-          backgroundImage={[
-            "/landingWalk.jpg",
-            "/landingWalk.jpg",
-            "Sauvik_Dada_Web_Banner.jpg",
-            "Sauvik_Dada_Web_Banner.jpg",
-          ]}
+          backgroundRepeat={"no-repeat"}
+          backgroundPosition="center"
+          backgroundImage={
+            !ani
+              ? [
+                  "/banner/bottom-right-image.png",
+                  "/banner/bottom-right-image.png",
+                  "/banner/bottom-right-image.png",
+                  "/banner/bottom-right-image.png",
+                ]
+              : [
+                  "/banner/sauvik-main-home-banner.png",
+                  "/banner/sauvik-main-home-banner.png",
+                  "/banner/sauvik-main-home-banner.png",
+                  "/banner/sauvik-main-home-banner.png",
+                ]
+          }
           backgroundSize={"cover"}
           bgColor="black"
           cursor={"pointer"}

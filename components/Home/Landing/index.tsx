@@ -134,7 +134,7 @@ const Home = () => {
           backgroundRepeat={"repeat"}
           backgroundPosition="center"
           backgroundSize={"cover"}
-          bgImage={"/landingBackground.png"}
+          bgImage={"/banner/splash-screen.png"}
         >
           <HStack
             height={"87vh"}
@@ -182,7 +182,7 @@ const Home = () => {
           >
             <Image
               alt="sdds"
-              src={"/Sauvik_Dada_Web_Banner2.jpg"}
+              src={"/banner/sauvik-main-home-banner.png"}
               fill
               style={{ objectFit: "cover" }}
             />
