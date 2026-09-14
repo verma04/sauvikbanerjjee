@@ -1,19 +1,26 @@
 import { SanityDocument } from "@sanity/client";
-import Head from "next/head";
 import React from "react";
 
-import BlogView from "../../components/blog/blogView/Blog";
-import PageLayout from "../../components/Header/PageLayout";
+import BlogView from "../../components/blog/blog-view/blog";
+import PageLayout from "../../components/header/page-layout";
 import { client } from "../../utils/client";
+import Seo from "../../components/common/seo";
 
 const Blog = ({ data, blogs }) => {
   return (
     <PageLayout>
-      <Head>
-        <title>{data?.title}</title>
-        <meta name="description" content={data?.title}></meta>
-        <meta property="og:image" content={data?.mainImage?.asset?.url} />
-      </Head>
+      <Seo
+        title={`${data?.title || "Blog"} | Sauvik Banerjjee`}
+        description={data?.description || data?.title || "Blog article by Sauvik Banerjjee"}
+        canonical={`/blog/${data?.slug?.current || ""}`}
+        ogType="article"
+        ogImage={
+          data?.mainImage?.asset?.url ||
+          "/sauvik-banerjjee-og-image.png"
+        }
+        publishedTime={data?.publishedAt || data?._createdAt}
+        author={data?.author?.name || "Sauvik Banerjjee"}
+      />
       <BlogView data={data} blogs={blogs} />
     </PageLayout>
   );

@@ -2,18 +2,18 @@ const vedioData = [
 
   {
     text: "Agentic AI: Shaping Improved Business Outcomes | HYSEA National Summit 2025 | Panel Discussion ",
-    img: "/AI_Year_Milestone.jpeg",
+    img: "/ai-year-milestone.jpeg",
     url: "C1gJMbsxMR4",
   },
   {
     text: "Breaking the Walls of Silence | Sauvik Banerjjee | TEDx ",
-    img: "/AI_Year_Milestone.jpeg",
+    img: "/ai-year-milestone.jpeg",
     url: "oHT1xK5eW9Q",
   },
 
   {
     text: "AI Year Milestone | Revolutionizing 2023 | AI's Evolution",
-    img: "/AI_Year_Milestone.jpeg",
+    img: "/ai-year-milestone.jpeg",
     url: "s2F9gY38a1E",
   },
   {
@@ -26,7 +26,7 @@ const vedioData = [
   {
     text: "The Tech Rulebook In Retail",
 
-    img: "/The Tech Rulebook.png",
+    img: "/the-tech-rulebook.png",
     url: "aWiK6MuXOJY",
   },
 

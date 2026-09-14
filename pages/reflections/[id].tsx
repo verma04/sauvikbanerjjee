@@ -1,19 +1,26 @@
 import { SanityDocument } from "@sanity/client";
-import Head from "next/head";
 import React from "react";
 
-import ReflectionView from "../../components/reflections/reflectionView/Reflection";
-import PageLayout from "../../components/Header/PageLayout";
+import ReflectionView from "../../components/reflections/reflection-view/reflection";
+import PageLayout from "../../components/header/page-layout";
 import { client } from "../../utils/client";
+import Seo from "../../components/common/seo";
 
 const ReflectionDetail = ({ data, reflections }) => {
   return (
     <PageLayout>
-      <Head>
-        <title>{data?.title} | Reflections | Sauvik Banerjjee</title>
-        <meta name="description" content={data?.title}></meta>
-        <meta property="og:image" content={data?.mainImage?.asset?.url || "/Sauvik_Banerjjee_OgImage.png"} />
-      </Head>
+      <Seo
+        title={`${data?.title || "Reflection"} | Reflections | Sauvik Banerjjee`}
+        description={data?.title || "Reflections by Sauvik Banerjjee"}
+        canonical={`/reflections/${data?.slug?.current || ""}`}
+        ogType="article"
+        ogImage={
+          data?.mainImage?.asset?.url ||
+          "/sauvik-banerjjee-og-image.png"
+        }
+        publishedTime={data?.publishedAt || data?._createdAt}
+        author={data?.author?.name || "Sauvik Banerjjee"}
+      />
       <ReflectionView data={data} reflections={reflections} />
     </PageLayout>
   );

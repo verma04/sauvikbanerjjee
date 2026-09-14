@@ -1,22 +1,18 @@
-import Head from "next/head";
 import React from "react";
-import PageLayout from "../../components/Header/PageLayout";
+import PageLayout from "../../components/header/page-layout";
 import { client } from "../../utils/client";
-import Reflections from "../../components/reflections/Reflections";
+import Reflections from "../../components/reflections/reflections";
+import Seo from "../../components/common/seo";
 
 const ReflectionsPage = ({ reflections }) => {
   return (
     <PageLayout>
-      <Head>
-        <title>
-          Sauvik Banerjjee | Reflections | Thoughts | Perspectives
-        </title>
-        <meta
-          name="description"
-          content="Sauvik Banerjjee | Reflections — personal thoughts, perspectives, insights and contemplations on technology, futurism, AI, and the human condition"
-        ></meta>
-        <meta property="og:image" content="/Sauvik_Banerjjee_OgImage.png" />
-      </Head>
+      <Seo
+        title="Sauvik Banerjjee | Reflections | Thoughts & Perspectives"
+        description="Sauvik Banerjjee | Reflections — personal thoughts, perspectives, insights and contemplations on technology, futurism, AI, and the human condition"
+        canonical="https://sauvikbanerjjee.com/reflections"
+        ogImage="/sauvik-banerjjee-og-image.png"
+      />
       <h1 style={{ display: "none" }}>Reflections - Sauvik Banerjjee</h1>
       <Reflections reflections={reflections} />
     </PageLayout>

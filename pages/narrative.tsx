@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import PageLayout from '../components/Header/PageLayout'
-
+import PageLayout from '../components/header/page-layout'
 import dynamic from 'next/dynamic'
-import Head from 'next/head'
+import Seo from '../components/common/seo'
 
+import Narrative from '../components/narrative/narrative'
 const NarrativeDesktop = dynamic(
-  () => import('../components/newNarative/Narrative'),
-  { ssr: false }
-)
-const Narrative = dynamic(
-  () => import('../components/narrative/Narrative'),
+  () => import('../components/new-narative/narrative'),
   { ssr: false }
 )
 
@@ -24,12 +20,12 @@ const NarrativePage = () => {
 
   return (
     <PageLayout>
-      <Head>
-        <title>Sauvik Banerjjee | Presentation | Thought Leadership | Success Principles</title>
-        <meta name="description" content="Sauvik Banerjjee Presentation Seasons 1, 2, 3 and more on POV, thought leadership, success principles for millennials, working professionals, c-suites" >
-        </meta>
-        <meta property="og:image" content="/Sauvik_Banerjjee_OgImage.png" />
-      </Head>
+      <Seo
+        title="Sauvik Banerjjee | Presentation | Thought Leadership | Success Principles"
+        description="Sauvik Banerjjee Presentation Seasons 1, 2, 3 and more on POV, thought leadership, success principles for millennials, working professionals, c-suites"
+        canonical="https://sauvikbanerjjee.com/narrative"
+        ogImage="/sauvik-banerjjee-og-image.png"
+      />
 
       {isDesktop ?
         <NarrativeDesktop />

@@ -1,23 +1,19 @@
-import Head from "next/head";
 import React from "react";
-import PageLayout from "../../components/Header/PageLayout";
+import PageLayout from "../../components/header/page-layout";
 import { client } from "../../utils/client";
-import Blog from "../../components/blog/Blog";
+import Blog from "../../components/blog/blog";
+import Seo from "../../components/common/seo";
 
 const blogtest = ({ blogs }) => {
   return (
     <PageLayout>
-      <Head>
-        <title>
-          Sauvik Banerjjee | Media Coverage | In the News | Video | Articles{" "}
-        </title>
-        <meta
-          name="description"
-          content="Sauvik Banerjjee | Media, video, interviews, podcasts, vlogs, blogs, coverage in global media, news, television channels, talk shows, quotes and communications"
-        ></meta>
-        <meta property="og:image" content="/Sauvik_Banerjjee_OgImage.png" />
-      </Head>
-      <h1 style={{ display: "none" }}>Media - Sauvik Banerjjee</h1>
+      <Seo
+        title="Sauvik Banerjjee | Blogs, Articles & Insights"
+        description="Explore articles, perspectives, and technology insights by Sauvik Banerjjee on AI, futurism, digital transformation, and leadership."
+        canonical="https://sauvikbanerjjee.com/blog"
+        ogImage="/sauvik-banerjjee-og-image.png"
+      />
+      <h1 style={{ display: "none" }}>Blogs &amp; Articles - Sauvik Banerjjee</h1>
       <Blog blogs={blogs} />
     </PageLayout>
   );

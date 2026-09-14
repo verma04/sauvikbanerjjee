@@ -21,20 +21,20 @@ const futurismData = [
   {
     text: "Self-Driving Cars",
 
-    img: "/selfCar.png",
+    img: "/self-car.png",
     description: "Self-driving cars, which use AI and machine learning algorithms to navigate and adapt to road conditions, will be mainstream by 2050. They will transform commuting by becoming energy-efficient and decreasing traffic congestion. Concerns concerning data privacy and infrastructure, on the other hand, will need to be addressed."
   },
 
   {
     text: "Next-Gen Gaming",
 
-    img: "/genGame.png",
+    img: "/gen-game.png",
     description: "Virtual and augmented reality will propel the game business forward by giving an immersive experience. Blockchain might make in-game transactions more transparent, and artificial intelligence could personalize games. Cloud-based and subscription services, for example, will make gaming more accessible to everybody."
   },
   {
     text: "Virtual Assistant Reign",
 
-    img: "/Reign.png",
+    img: "/reign.png",
     description: "Virtual assistants are increasingly crucial because they comprehend natural language and context and can provide personalised advice and ideas. They will permeate every facet of our life, from healthcare to home automation. As they grow increasingly common, the distinction between human and machine contact will become blurred, ushering in a new age of human-machine cooperation."
   },
 
@@ -61,7 +61,7 @@ const futurismData = [
   {
     text: "Drone Exploration Revolution",
 
-    img: "/Dronee.png",
+    img: "/dronee.png",
     description: "Drones equipped with sensors and cameras will change exploration, enabling scientists to gather data from dangerous and remote locations. Drones will be used for environmental monitoring, endangered species conservation, and massive land and marine exploration."
   },
   {
@@ -86,7 +86,7 @@ const futurismData = [
   {
     text: "Virtual Reality Revolution",
 
-    img: "/Virtual Reality Revolution.png",
+    img: "/virtual-reality-revolution.png",
     description: "Virtual reality technology is likely to undergo a significant transformation, with more immersive and realistic VR experiences becoming accessible. This has the ability to change many sectors and generate new job possibilities. Virtual reality has the potential to change the way we connect with one another and with the environment around us."
   },
 ];

@@ -21,7 +21,7 @@ import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
 
 const BackToButton = dynamic(
-  () => import("../components/backtoTop/BackToButton"),
+  () => import("../components/back-to-top/back-to-button"),
   {
     ssr: false,
   }
@@ -67,8 +67,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <meta name="theme-color" content={"#17181c"} />
 
-        <link rel="shortcut icon" href="/static/favicon.ico" />
-
         <meta name="msapplication-navbutton-color" content={"#17181c"} />
 
         <meta
@@ -101,18 +99,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           }}
         />
 
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-GFQGCGGE32"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-           window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag(‘js’, new Date());
-  gtag(‘config’, ‘G-GFQGCGGE32’);
-        `}
-        </Script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <ToastContainer />
       <ChakraProvider theme={theme}>

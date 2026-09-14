@@ -9,79 +9,78 @@ export default function Document() {
         <link
           rel="apple-touch-icon"
           sizes="57x57"
-          href="/favi/apple-icon-57x57.png"
+          href="/favi/apple-icon-57x-57.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="60x60"
-          href="/favi/apple-icon-60x60.png"
+          href="/favi/apple-icon-60x-60.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="72x72"
-          href="/favi/apple-icon-72x72.png"
+          href="/favi/apple-icon-72x-72.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="76x76"
-          href="/favi/apple-icon-76x76.png"
+          href="/favi/apple-icon-76x-76.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="114x114"
-          href="/favi/apple-icon-114x114.png"
+          href="/favi/apple-icon-114x-114.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="120x120"
-          href="/favi/apple-icon-120x120.png"
+          href="/favi/apple-icon-120x-120.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="144x144"
-          href="/favi/apple-icon-144x144.png"
+          href="/favi/apple-icon-144x-144.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="152x152"
-          href="/favi/apple-icon-152x152.png"
+          href="/favi/apple-icon-152x-152.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/favi/apple-icon-180x180.png"
+          href="/favi/apple-icon-180x-180.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="192x192"
-          href="/favi/android-icon-192x192.png"
+          href="/favi/android-icon-192x-192.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="/favi/favicon-32x32.png"
+          href="/favi/favicon-32x-32.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="96x96"
-          href="/favi/favicon-96x96.png"
+          href="/favi/favicon-96x-96.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="/favi/favicon-16x16.png"
+          href="/favi/favicon-16x-16.png"
         />
         <link rel="manifest" href="/favi/manifest.json" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta
           name="msapplication-TileImage"
-          content="/favicon/ms-icon-144x144.png"
+          content="/favi/ms-icon-144x-144.png"
         />
-        <meta name="theme-color" content="#ffffff"></meta>
         <meta
           name="google-site-verification"
           content="qTGa7vSVBwAQkzXHfwAqkNkLISZHnpXNyOeOiszBKIY"

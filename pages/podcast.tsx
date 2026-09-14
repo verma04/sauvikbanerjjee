@@ -1,8 +1,8 @@
-import Head from "next/head";
 import React from "react";
-import PageLayout from "../components/Header/PageLayout";
-import PodcastGallery from "../components/video/PodcastGallery";
+import PageLayout from "../components/header/page-layout";
+import PodcastGallery from "../components/video/podcast-gallery";
 import { useRouter } from "next/router";
+import Seo from "../components/common/seo";
 
 const PodcastPage = () => {
   const router = useRouter();
@@ -10,16 +10,12 @@ const PodcastPage = () => {
 
   return (
     <PageLayout>
-      <Head>
-        <title>
-          Sauvik Banerjjee | Podcasts | Featured Conversations & Interviews
-        </title>
-        <meta
-          name="description"
-          content="Sauvik Banerjjee | Podcasts, video interviews, featured conversations, talk shows, quotes and communications"
-        ></meta>
-        <meta property="og:image" content="/Sauvik_Banerjjee_OgImage.png" />
-      </Head>
+      <Seo
+        title="Sauvik Banerjjee | Podcasts | Featured Conversations & Interviews"
+        description="Sauvik Banerjjee | Podcasts, video interviews, featured conversations, talk shows, quotes and communications"
+        canonical="https://sauvikbanerjjee.com/podcast"
+        ogImage="/sauvik-banerjjee-og-image.png"
+      />
       <h1 style={{ display: "none" }}>Podcasts - Sauvik Banerjjee</h1>
       <PodcastGallery query={query} />
     </PageLayout>
