@@ -52,6 +52,8 @@ body {
 html,
 body {
   margin: 0;
+  background-color: #000000 !important;
+  color: white;
 }
 
 .container {

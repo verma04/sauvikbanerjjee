@@ -77,6 +77,14 @@ const breakpoints = {
 };
 
 export const theme = extendTheme({
+  styles: {
+    global: {
+      body: {
+        bg: "#000000",
+        color: "white",
+      },
+    },
+  },
   fonts: {
     text: "Open sans",
     heading: "Bebas Neue",

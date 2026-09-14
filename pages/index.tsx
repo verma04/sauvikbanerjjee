@@ -16,7 +16,9 @@ const Home: NextPage = () => {
         ></meta>
         <meta property="og:image" content="/Sauvik_Banerjjee_OgImage.png" />
       </Head>
-      <h1 style={{ display: "none" }}>Home Page - Sauvik Banerjjee</h1>
+      <h1 style={{ display: "none" }}>
+        Sauvik Banerjjee | Human Performance OS in the Age of AI
+      </h1>
       <HomePage />
     </>
   );

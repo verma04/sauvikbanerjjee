@@ -44,11 +44,15 @@ const Home = () => {
   const executeScroll = () => myRef?.current?.scrollIntoView();
   return (
     <>
-      {landing && (
-        <Box position="fixed" top={0} height="10vh" zIndex={10}>
-          <Header />
-        </Box>
-      )}
+      <Box
+        position="fixed"
+        top={0}
+        height="10vh"
+        zIndex={10}
+        display={landing ? "block" : "none"}
+      >
+        <Header />
+      </Box>
       <div className="scroll">
         {loading && <PreLoader />}
         <section className="snap-scroll">
@@ -58,34 +62,32 @@ const Home = () => {
             setAni={setLanding}
           />
         </section>
-        {landing && (
-          <>
-            <section ref={myRef} className="snap-scroll">
-              {isClient && (isDesktop ? <NarrativeDesktop /> : <Narrative />)}
-            </section>
+        <Box display={landing ? "block" : "none"}>
+          <section ref={myRef} className="snap-scroll">
+            {isDesktop ? <NarrativeDesktop /> : <Narrative />}
+          </section>
+          <section className="snap-scroll">
+            <Podcast />
+          </section>
+          <section className="snap-scroll">
+            <Media />
+          </section>
+          <section className="snap-scroll">
+            <Poster />
+          </section>
+          <section className="snap-scroll">
+            <Futurism />
+          </section>
+          {isClient && isDesktop && (
             <section className="snap-scroll">
-              <Podcast />
+              <SocialMedia />
             </section>
-            <section className="snap-scroll">
-              <Media />
-            </section>
-            <section className="snap-scroll">
-              <Poster />
-            </section>
-            <section className="snap-scroll">
-              <Futurism />
-            </section>
-            {isClient && isDesktop && (
-              <section className="snap-scroll">
-                <SocialMedia />
-              </section>
-            )}
+          )}
 
-            <section className="snap-scroll">
-              <Footer />
-            </section>
-          </>
-        )}
+          <section className="snap-scroll">
+            <Footer />
+          </section>
+        </Box>
       </div>
     </>
   );

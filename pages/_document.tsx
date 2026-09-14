@@ -81,7 +81,7 @@ export default function Document() {
           name="msapplication-TileImage"
           content="/favicon/ms-icon-144x144.png"
         />
-        <meta name="theme-color" content="#ffffff"></meta>
+        <meta name="theme-color" content="#17181c"></meta>
         <meta
           name="google-site-verification"
           content="qTGa7vSVBwAQkzXHfwAqkNkLISZHnpXNyOeOiszBKIY"
@@ -99,7 +99,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body>
+      <body style={{ backgroundColor: "#000000" }}>
         <Main />
         <NextScript />
       </body>

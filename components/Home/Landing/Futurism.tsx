@@ -268,7 +268,7 @@ export default function SocialMedia() {
           draggable={true}
           showDots={false}
           responsive={responsive}
-          ssr={false}
+          ssr={true}
           infinite={true}
           autoPlay={true}
           autoPlaySpeed={1000}
@@ -367,9 +367,6 @@ export default function SocialMedia() {
                   </Center>
                 </Box >
               </Center>
-
-
-
             </>
           ))}
         </Carousel>
