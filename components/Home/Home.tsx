@@ -53,7 +53,13 @@ const Home = () => {
       >
         <Header />
       </Box>
-      <div className="scroll">
+      <div
+        className="scroll"
+        style={{
+          overflow: landing ? "auto" : "hidden",
+          height: "100svh",
+        }}
+      >
         {loading && <PreLoader />}
         <section className="snap-scroll">
           <LandingMobile
@@ -62,7 +68,7 @@ const Home = () => {
             setAni={setLanding}
           />
         </section>
-        <Box display={landing ? "block" : "none"}>
+        <Box>
           <section ref={myRef} className="snap-scroll">
             {isDesktop ? <NarrativeDesktop /> : <Narrative />}
           </section>
