@@ -19,6 +19,7 @@ import "../styles/globals.css";
 import Script from "next/script";
 import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const BackToButton = dynamic(
   () => import("../components/backtoTop/BackToButton"),
@@ -28,6 +29,13 @@ const BackToButton = dynamic(
 );
 const prod = process.env.NODE_ENV === "production";
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const cleanPath = (router.asPath || "")
+    .split("?")[0]
+    .split("#")[0]
+    .replace(/\/+$/, "");
+  const canonicalUrl = `https://sauvikbanerjjee.com${cleanPath}`;
+
   // useEffect(() => {
   //   // define a custom handler function
   //   // for the contextmenu event
@@ -65,6 +73,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Script>
 
       <Head>
+        <link rel="canonical" href={canonicalUrl} key="canonical" />
+        <meta property="og:url" content={canonicalUrl} key="og:url" />
         <meta name="theme-color" content={"#17181c"} />
 
         <link rel="shortcut icon" href="/static/favicon.ico" />
@@ -75,6 +85,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           name="apple-mobile-web-app-status-bar-style"
           content={"#17181c"}
         ></meta>
+
 
         <script
           type="application/ld+json"
