@@ -92,18 +92,38 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
             width={"100%"}
             alignItems={["flex-start", "flex-start", "flex-start", "flex-start"]}
             justifyContent={["flex-start", "flex-start", "flex-start", "flex-start"]}
-            pt={["13vh", "13vh", "12vh", "19vh"]}
-            pl={["6.5vw", "6.5vw", "3vw", "8.0vw"]}
+            pt={{ base: "13vh", sm: "13vh", md: "14vh", lg: "16vh", xl: "19vh" }}
+            pl={{ base: "6.5vw", sm: "6.5vw", md: "4vw", lg: "5vw", xl: "8vw" }}
           >
             <Box width={"100%"}>
               <Heading
                 zIndex={2}
                 overflow={"hidden"}
                 color={"white"}
-                fontSize={["21vw", "21vw", "22vh", "30vh"]}
+                fontSize={{
+                  base: "21vw",
+                  sm: "20vw",
+                  md: "min(14vh, 11.5vw)",
+                  lg: "min(18vh, 12vw)",
+                  xl: "min(25vh, 15vw)",
+                  "2xl": "28vh",
+                }}
                 as="h1"
-                letterSpacing={["0.2vh", "0.2vh", "0.5vh", "0.5vh"]}
-                lineHeight={["18vw", "18vw", "20vh", "26vh"]}
+                letterSpacing={{
+                  base: "0.2vh",
+                  sm: "0.2vh",
+                  md: "0.3vh",
+                  lg: "0.4vh",
+                  xl: "0.5vh",
+                }}
+                lineHeight={{
+                  base: "18vw",
+                  sm: "17vw",
+                  md: "min(12.5vh, 10vw)",
+                  lg: "min(16vh, 10.5vw)",
+                  xl: "min(22vh, 13.5vw)",
+                  "2xl": "25vh",
+                }}
                 textAlign={["left", "left", "left", "left"]}
                 display={"flex"}
                 justifyContent="flex-start"
@@ -146,16 +166,16 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
           }}
           variants={variants}
           animate={ani ? "rotate" : "stop"}
-          height={!ani ? ["22vh", "24vh", "37vh", "37vh"] : "100svh"}
-          width={!ani ? ["28vw", "28vw", "27.1vh", "27.1vh"] : "100%"}
-          maxW={!ani ? ["130px", "140px", "30vw", "20vw"] : "100%"}
+          height={!ani ? { base: "22vh", sm: "24vh", md: "34vh", lg: "35vh" } : "100svh"}
+          width={!ani ? { base: "28vw", sm: "28vw", md: "25vh", lg: "25.6vh" } : "100%"}
+          maxW={!ani ? { base: "130px", sm: "140px", md: "22vw", lg: "20vw" } : "100%"}
           style={{ aspectRatio: !ani ? "246 / 336" : "unset" }}
-          bottom={!ani ? ["10%", "10%", "0%", "0%"] : "0%"}
-          right={!ani ? ["5%", "5%", "0%", "0%"] : "0%"}
+          bottom={!ani ? { base: "3%", sm: "3%", md: "4%", lg: "4%" } : "0%"}
+          right={!ani ? { base: "5%", sm: "5%", md: "1%", lg: "1%" } : "0%"}
           zIndex={5}
           position={"absolute"}
           backgroundRepeat={"no-repeat"}
-          backgroundPosition={!ani ? "center" : "center"}
+          backgroundPosition={!ani ? "center" : "bottom center"}
           backgroundImage={
             !ani
               ? [
@@ -178,12 +198,12 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
 
         <ChakraBox
           color="white"
-          bottom={{ base: "12%", sm: "12%", md: "8%", lg: "8%" }}
+          bottom={{ base: "4.5%", sm: "4.5%", md: "6%", lg: "6.5%" }}
           right={{
             base: "calc(5% + min(28vw, 130px) + 10px)",
             sm: "calc(5% + min(28vw, 140px) + 12px)",
-            md: "10%",
-            lg: "20%",
+            md: "calc(1% + min(25vh, 22vw) + 16px)",
+            lg: "calc(1% + min(25.6vh, 20vw) + 18px)",
           }}
           position={"absolute"}
           display="flex"
@@ -201,7 +221,7 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
         >
           <Text
             _hover={{ color: "#2981E2" }}
-            fontSize={{ base: "0.85rem", sm: "0.95rem", md: "1.3rem", lg: "1.5rem" }}
+            fontSize={{ base: "0.85rem", sm: "0.95rem", md: "1.15rem", lg: "1.25rem" }}
             whiteSpace="nowrap"
             fontWeight="400"
           >
@@ -209,9 +229,9 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
           </Text>
 
           <ChakraSvg
-            width={{ base: "13px", sm: "14px", md: "18px", lg: "20px" }}
-            height={{ base: "9px", sm: "10px", md: "12px", lg: "14px" }}
-            style={{ marginLeft: "0.35rem" }}
+            width={{ base: "13px", sm: "14px", md: "16px", lg: "18px" }}
+            height={{ base: "9px", sm: "10px", md: "11px", lg: "12px" }}
+            style={{ marginLeft: "0.4rem" }}
             viewBox="0 0 16 10"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
