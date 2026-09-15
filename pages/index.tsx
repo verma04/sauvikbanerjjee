@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         <meta property="og:image" content="/Sauvik_Banerjjee_OgImage.png" />
       </Head>
       <h1 style={{ display: "none" }}>
-        Sauvik Banerjjee | Human Performance OS in the Age of AI
+        Sauvik Banerjjee | Human OS™ in the Age of AI
       </h1>
       <HomePage />
     </>

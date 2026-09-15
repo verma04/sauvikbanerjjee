@@ -90,22 +90,23 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
           <HStack
             height={"100svh"}
             width={"100%"}
-            alignItems="center"
-            justifyContent={"center"}
+            alignItems={["center", "center", "flex-start", "flex-start"]}
+            justifyContent={["center", "center", "flex-start", "flex-start"]}
+            pt={["0", "0", "12vh", "19vh"]}
+            pl={["0", "0", "3vw", "8.0vw"]}
           >
-            <Center height={"100%"} width={"100%"}>
+            <Box width={"100%"}>
               <Heading
                 zIndex={2}
-                mr={isDesktop ? "10%" : "0%"}
                 overflow={"hidden"}
                 color={"white"}
-                fontSize={["9vh", "9vh", "9vh", "20vw"]}
+                fontSize={["8vh", "9vh", "22vh", "30vh"]}
                 as="h1"
-                letterSpacing={"0.8vh"}
-                lineHeight={["10.5vh", "10.5vh", "10.5vh", "20vw"]}
-                textAlign="center"
+                letterSpacing={"0.5vh"}
+                lineHeight={["9.5vh", "10.5vh", "20vh", "26vh"]}
+                textAlign={["center", "center", "left", "left"]}
                 display={"flex"}
-                justifyContent="center"
+                justifyContent="flex-start"
                 flexDirection={"column"}
                 alignItems={["center", "center", "flex-start", "flex-start"]}
               >
@@ -127,7 +128,7 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
                   scrollArea={myRef}
                 />
               </Heading>
-            </Center>
+            </Box>
           </HStack>
         </Box>
 
@@ -141,18 +142,20 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
         <ChakraBox
           onClick={() => onShow()}
           initial={{
-            height: isDesktop ? "37%" : "9em",
-            width: isDesktop ? "15%" : "6rem",
             opacity: 0,
           }}
           variants={variants}
           animate={ani ? "rotate" : "stop"}
+          height={!ani ? ["26vh", "30vh", "37vh", "37vh"] : "100svh"}
+          width={!ani ? ["19vh", "22vh", "27.1vh", "27.1vh"] : "100%"}
+          maxW={!ani ? ["46vw", "40vw", "30vw", "20vw"] : "100%"}
+          style={{ aspectRatio: !ani ? "246 / 336" : "unset" }}
           bottom={"0%"}
           right={"0%"}
           zIndex={5}
           position={"absolute"}
           backgroundRepeat={"no-repeat"}
-          backgroundPosition="center"
+          backgroundPosition={!ani ? "bottom right" : "center"}
           backgroundImage={
             !ani
               ? [
@@ -168,8 +171,8 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
                   "/banner/sauvik-main-home-banner.png",
                 ]
           }
-          backgroundSize={"cover"}
-          bgColor="black"
+          backgroundSize={!ani ? "contain" : "cover"}
+          bgColor={!ani ? "transparent" : "black"}
           cursor={"pointer"}
         ></ChakraBox>
 
@@ -224,7 +227,7 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
 
         <ChakraBox
           position={"absolute"}
-          top={["9%", "9%", "9%", "9%"]}
+          top={["8%", "8%", "8.5%", "8.5%"]}
           width={"100%"}
           zIndex={5}
           variants={text1}
