@@ -57,7 +57,10 @@ const Header = ({}) => {
       <div className="container">
         <Center
           zIndex={1400}
-          background="linear-gradient( #000000 30% , rgba(0, 0, 0, 0) 100%);"
+          background={{
+            base: "linear-gradient(#000000 30%, rgba(0, 0, 0, 0) 100%)",
+            md: "transparent",
+          }}
           className="wrapper"
         >
           <div className="inner-header">

@@ -76,12 +76,12 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
         <Box
           width={"100%"}
           height={"100svh"}
-          backgroundRepeat={"repeat"}
+          backgroundRepeat={"no-repeat"}
           backgroundPosition="center"
           backgroundSize={"cover"}
           bgImage={[
-            "/banner/splash-screen.png",
-            "/banner/splash-screen.png",
+            "/banner/mobile-splash-screen.png",
+            "/banner/mobile-splash-screen.png",
             "/banner/splash-screen.png",
             "/banner/splash-screen.png",
           ]}
@@ -90,25 +90,25 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
           <HStack
             height={"100svh"}
             width={"100%"}
-            alignItems={["center", "center", "flex-start", "flex-start"]}
-            justifyContent={["center", "center", "flex-start", "flex-start"]}
-            pt={["0", "0", "12vh", "19vh"]}
-            pl={["0", "0", "3vw", "8.0vw"]}
+            alignItems={["flex-start", "flex-start", "flex-start", "flex-start"]}
+            justifyContent={["flex-start", "flex-start", "flex-start", "flex-start"]}
+            pt={["13vh", "13vh", "12vh", "19vh"]}
+            pl={["6.5vw", "6.5vw", "3vw", "8.0vw"]}
           >
             <Box width={"100%"}>
               <Heading
                 zIndex={2}
                 overflow={"hidden"}
                 color={"white"}
-                fontSize={["8vh", "9vh", "22vh", "30vh"]}
+                fontSize={["21vw", "21vw", "22vh", "30vh"]}
                 as="h1"
-                letterSpacing={"0.5vh"}
-                lineHeight={["9.5vh", "10.5vh", "20vh", "26vh"]}
-                textAlign={["center", "center", "left", "left"]}
+                letterSpacing={["0.2vh", "0.2vh", "0.5vh", "0.5vh"]}
+                lineHeight={["18vw", "18vw", "20vh", "26vh"]}
+                textAlign={["left", "left", "left", "left"]}
                 display={"flex"}
                 justifyContent="flex-start"
                 flexDirection={"column"}
-                alignItems={["center", "center", "flex-start", "flex-start"]}
+                alignItems={["flex-start", "flex-start", "flex-start", "flex-start"]}
               >
                 <TypeWriterEffect
                   startDelay={1600}
@@ -146,16 +146,16 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
           }}
           variants={variants}
           animate={ani ? "rotate" : "stop"}
-          height={!ani ? ["26vh", "30vh", "37vh", "37vh"] : "100svh"}
-          width={!ani ? ["19vh", "22vh", "27.1vh", "27.1vh"] : "100%"}
-          maxW={!ani ? ["46vw", "40vw", "30vw", "20vw"] : "100%"}
+          height={!ani ? ["22vh", "24vh", "37vh", "37vh"] : "100svh"}
+          width={!ani ? ["28vw", "28vw", "27.1vh", "27.1vh"] : "100%"}
+          maxW={!ani ? ["130px", "140px", "30vw", "20vw"] : "100%"}
           style={{ aspectRatio: !ani ? "246 / 336" : "unset" }}
-          bottom={"0%"}
-          right={"0%"}
+          bottom={!ani ? ["10%", "10%", "0%", "0%"] : "0%"}
+          right={!ani ? ["5%", "5%", "0%", "0%"] : "0%"}
           zIndex={5}
           position={"absolute"}
           backgroundRepeat={"no-repeat"}
-          backgroundPosition={!ani ? "bottom right" : "center"}
+          backgroundPosition={!ani ? "center" : "center"}
           backgroundImage={
             !ani
               ? [
@@ -165,21 +165,26 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
                   "/banner/bottom-right-image.png",
                 ]
               : [
-                  "/banner/sauvik-main-home-banner.png",
-                  "/banner/sauvik-main-home-banner.png",
+                  "/banner/sauvik-main-home-mobile-banner.png",
+                  "/banner/sauvik-main-home-mobile-banner.png",
                   "/banner/sauvik-main-home-banner.png",
                   "/banner/sauvik-main-home-banner.png",
                 ]
           }
-          backgroundSize={!ani ? "contain" : "cover"}
+          backgroundSize={!ani ? "cover" : "cover"}
           bgColor={!ani ? "transparent" : "black"}
           cursor={"pointer"}
         ></ChakraBox>
 
         <ChakraBox
           color="white"
-          bottom={["5%", "5%", "8%", "8%"]}
-          right={["40%", "40%", "10%", "20%"]}
+          bottom={{ base: "12%", sm: "12%", md: "8%", lg: "8%" }}
+          right={{
+            base: "calc(5% + min(28vw, 130px) + 10px)",
+            sm: "calc(5% + min(28vw, 140px) + 12px)",
+            md: "10%",
+            lg: "20%",
+          }}
           position={"absolute"}
           display="flex"
           justifyContent={"center"}
@@ -196,38 +201,43 @@ const LandingMobile = ({ ani, setAni, executeScroll }) => {
         >
           <Text
             _hover={{ color: "#2981E2" }}
-            fontSize={["1.5rem", "1.5rem", "1.5rem", "1.5rem"]}
+            fontSize={{ base: "0.85rem", sm: "0.95rem", md: "1.3rem", lg: "1.5rem" }}
+            whiteSpace="nowrap"
+            fontWeight="400"
           >
             Click Here
           </Text>
 
           <ChakraSvg
-            width={["26", "26", "30", "10"]}
-            height={["26", "26", "30", "30"]}
-            style={{ marginLeft: "0.5rem" }}
-            viewBox="0 0 16 16"
+            width={{ base: "13px", sm: "14px", md: "18px", lg: "20px" }}
+            height={{ base: "9px", sm: "10px", md: "12px", lg: "14px" }}
+            style={{ marginLeft: "0.35rem" }}
+            viewBox="0 0 16 10"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             animate={{
-              x: [0, 20, 20, 0, 0],
+              x: [0, 4, 4, 0, 0],
               transition: {
-                duration: 2,
+                duration: 1.8,
                 ease: "easeInOut",
-
                 repeat: Infinity,
               },
             }}
           >
             <path
-              d="M7.3 15.3C7.11667 15.1167 7.02067 14.8833 7.012 14.6C7.004 14.3167 7.09167 14.0833 7.275 13.9L12.175 8.99999H1C0.716667 8.99999 0.479 8.90399 0.287 8.71199C0.0956668 8.52065 0 8.28332 0 7.99999C0 7.71665 0.0956668 7.47899 0.287 7.28699C0.479 7.09565 0.716667 6.99999 1 6.99999H12.175L7.275 2.09999C7.09167 1.91665 7.004 1.68332 7.012 1.39999C7.02067 1.11665 7.11667 0.883321 7.3 0.699987C7.48333 0.516654 7.71667 0.424988 8 0.424988C8.28333 0.424988 8.51667 0.516654 8.7 0.699987L15.3 7.29999C15.4 7.38332 15.471 7.48732 15.513 7.61199C15.5543 7.73732 15.575 7.86665 15.575 7.99999C15.575 8.13332 15.5543 8.25832 15.513 8.37499C15.471 8.49165 15.4 8.59999 15.3 8.69999L8.7 15.3C8.51667 15.4833 8.28333 15.575 8 15.575C7.71667 15.575 7.48333 15.4833 7.3 15.3Z"
-              fill="white"
+              d="M1 5H14M10 1.5L14 5L10 8.5"
+              stroke="white"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </ChakraSvg>
         </ChakraBox>
 
         <ChakraBox
           position={"absolute"}
-          top={["8%", "8%", "8.5%", "8.5%"]}
+          top={{ base: "21%", sm: "21%", md: "8.5%", lg: "8.5%" }}
+          left={0}
           width={"100%"}
           zIndex={5}
           variants={text1}

@@ -89,16 +89,31 @@ const Narrative = () => {
         position={"absolute"}
         bottom="2%"
       >
-        <Flex alignItems={"center"} width={"90%"} height="100%" bgColor="white">
+        <Flex
+          alignItems={"center"}
+          width={"90%"}
+          height="100%"
+          bgColor="white"
+          borderRadius="md"
+          boxShadow="sm"
+          px="1"
+        >
           {data.map((set, index) => (
             <Box key={index}>
               <Text
+                color={active.name === set.name ? "#000000" : "#666666"}
+                fontWeight={active.name === set.name ? "700" : "500"}
                 onClick={async () => {
                   await setActive(set);
                   await setImage(set.link);
                 }}
-                borderBottom={active.name === set.name ? "1px solid black" : ""}
+                borderBottom={
+                  active.name === set.name ? "2px solid black" : "2px solid transparent"
+                }
+                pb="2px"
+                cursor="pointer"
                 ml="1rem"
+                fontSize={["0.95rem", "1rem", "1rem", "1rem"]}
               >
                 {set.name}
               </Text>

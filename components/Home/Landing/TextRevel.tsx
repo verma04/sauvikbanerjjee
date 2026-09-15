@@ -78,8 +78,8 @@ export default function TextRevel() {
       justifyContent="center"
       textAlign="center"
       width="100%"
-      pr={["1rem", "2rem", "4rem", "4rem"]}
-      pl={["1rem", "2rem", "7rem", "11rem"]}
+      pr={{ base: "1rem", sm: "1rem", md: "4rem", lg: "4rem" }}
+      pl={{ base: "1rem", sm: "1rem", md: "7rem", lg: "11rem" }}
     >
       <ChakraBox
         as={motion.div}
@@ -97,10 +97,11 @@ export default function TextRevel() {
           justifyContent="center"
           fontFamily="'Open Sans', sans-serif"
           fontWeight="700"
-          fontSize={["2.6rem", "3.8rem", "5.4rem", "6.8rem"]}
+          fontSize={{ base: "2.5rem", sm: "2.9rem", md: "5.4rem", lg: "6.8rem" }}
           lineHeight="1"
           color="white"
           letterSpacing="-0.01em"
+          textShadow="0 4px 16px rgba(0, 0, 0, 0.35)"
         >
           {titleWords.map((wordObj, wIdx) => (
             <Box
@@ -125,7 +126,7 @@ export default function TextRevel() {
                   as={motion.span}
                   variants={letterVariants}
                   display="inline-block"
-                  fontSize={["0.22em", "0.22em", "0.24em", "0.24em"]}
+                  fontSize={{ base: "0.25em", sm: "0.24em", md: "0.24em", lg: "0.24em" }}
                   fontWeight="400"
                   fontFamily="'Open Sans', sans-serif"
                   ml="0.18em"
@@ -151,12 +152,13 @@ export default function TextRevel() {
         <Text
           fontFamily="'Open Sans', sans-serif"
           fontWeight="300"
-          fontSize={["0.85rem", "1.1rem", "1.55rem", "1.9rem"]}
-          letterSpacing={["0.28em", "0.36em", "0.46em", "0.52em"]}
+          fontSize={{ base: "0.82rem", sm: "0.95rem", md: "1.55rem", lg: "1.9rem" }}
+          letterSpacing={{ base: "0.28em", sm: "0.32em", md: "0.46em", lg: "0.52em" }}
           textTransform="uppercase"
           color="rgba(255, 255, 255, 0.95)"
           lineHeight="1.2"
-          pl={["0.28em", "0.36em", "0.46em", "0.52em"]}
+          pl={{ base: "0.28em", sm: "0.32em", md: "0.46em", lg: "0.52em" }}
+          textShadow="0 2px 10px rgba(0, 0, 0, 0.45)"
         >
           IN THE AGE OF AI
         </Text>
