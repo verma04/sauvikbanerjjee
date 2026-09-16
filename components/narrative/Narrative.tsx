@@ -61,7 +61,7 @@ const Narrative = () => {
       overflow={"hidden"}
     >
       <Box
-        mt={["6vh", "8vh", "10vh", "10vh"]}
+        mt={["3vh", "4vh", "10vh", "10vh"]}
         width={"100%"}
         display="flex"
         justifyContent={"center"}
@@ -72,7 +72,14 @@ const Narrative = () => {
         </Heading>
       </Box>
 
-      <Center width={"90%"} maxW="380px" mx="auto" my="1rem" position="relative">
+      <Center
+        width={"90%"}
+        maxW="380px"
+        mx="auto"
+        mt={["1rem", "1rem", "1rem", "1rem"]}
+        mb={["90px", "90px", "1rem", "1rem"]}
+        position="relative"
+      >
         <Box width={"100%"} borderRadius="xl" overflow="hidden" position="relative">
           <YouTube videoId={image} opts={opts} onReady={onPlayerReady} />
         </Box>
