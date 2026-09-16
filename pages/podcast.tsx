@@ -12,15 +12,17 @@ const PodcastPage = () => {
     <PageLayout>
       <Head>
         <title>
-          Sauvik Banerjjee | Podcasts | Featured Conversations & Interviews
+          Sauvik Banerjjee Podcasts | Interviews & Conversations
         </title>
         <meta
           name="description"
-          content="Sauvik Banerjjee | Podcasts, video interviews, featured conversations, talk shows, quotes and communications"
+          content="Listen to podcasts featuring Sauvik Banerjjee on AI, technology, leadership, innovation and business, with insights from leading industry conversations."
         ></meta>
         <meta property="og:image" content="/Sauvik_Banerjjee_OgImage.png" />
       </Head>
-      <h1 style={{ display: "none" }}>Podcasts - Sauvik Banerjjee</h1>
+      <h1 style={{ display: "none" }}>
+        Sauvik Banerjjee Podcasts | Interviews & Conversations
+      </h1>
       <PodcastGallery query={query} />
     </PageLayout>
   );

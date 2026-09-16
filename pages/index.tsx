@@ -8,20 +8,19 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>
-          Sauvik Banerjjee | Tech Futurist, Author, Academic, Global C-Suite
+          Sauvik Banerjjee | Tech Futurist, Author & Global C-Suite
         </title>
         <meta
           name="description"
-          content="Sauvik Banerjjee is the global CEO for Rezolve. Sauvik is a Tech Futurist, Author, Academic, global C-suite Leader, Ex-CTO Tata Digital, Tata Neu, TATA Cliq and has worked with many known brands"
+          content="Explore Sauvik Banerjjee's insights on AI, emerging technologies, innovation and the future of business as a tech futurist, author and academic."
         ></meta>
         <meta property="og:image" content="/Sauvik_Banerjjee_OgImage.png" />
       </Head>
       <h1 style={{ display: "none" }}>
-        Sauvik Banerjjee | Human OS™ in the Age of AI
+        Sauvik Banerjjee | Tech Futurist, Author & Global C-Suite
       </h1>
       <HomePage />
     </>
   );
 };
-
 export default Home;

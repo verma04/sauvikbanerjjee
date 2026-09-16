@@ -7,14 +7,14 @@ const Futurism2050Page = () => {
     return (
         <PageLayout>
             <Head>
-                <title>Sauvik Banerjjee | Futurism 2050 | Predictions for 2050 | Trends</title>
-                <meta name="description" content="Sauvik Banerjjee | Tech Futurist's top predictions for 2050 in Tech and how it will permeate our lives, work, socieites and Universe at large" >
+                <title>Futurism 2050 | Future Technology Trends & Predictions</title>
+                <meta name="description" content="Explore Futurism 2050 by Sauvik Banerjjee, featuring predictions on AI, nanobots, space exploration, quantum computing, BCIs, robotics and VR." >
 
                 </meta>
                 <meta property="og:image" content="/Sauvik_Banerjjee_OgImage.png" />
             </Head>
             <h1 style={{ display: 'none' }} >
-                Futurism 2050 - Sauvik Banerjjee
+                Futurism 2050 | Future Technology Trends & Predictions
             </h1>
             <Futurism />
         </PageLayout >

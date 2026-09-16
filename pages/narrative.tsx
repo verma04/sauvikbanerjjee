@@ -25,8 +25,8 @@ const NarrativePage = () => {
   return (
     <PageLayout>
       <Head>
-        <title>Sauvik Banerjjee | Presentation | Thought Leadership | Success Principles</title>
-        <meta name="description" content="Sauvik Banerjjee Presentation Seasons 1, 2, 3 and more on POV, thought leadership, success principles for millennials, working professionals, c-suites" >
+        <title>Sauvik Banerjjee Narrative | Journey, Ideas & Insights</title>
+        <meta name="description" content="Explore Sauvik Banerjjee's narrative, ideas and perspectives on technology, leadership, innovation, business and the future." >
         </meta>
         <meta property="og:image" content="/Sauvik_Banerjjee_OgImage.png" />
       </Head>

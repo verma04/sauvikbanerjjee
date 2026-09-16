@@ -7,8 +7,8 @@ import Timeline from '../components/timeline/Timeline'
 const TimelinePage = () => {
     return (
         <>    <Head>
-            <title>Sauvik Banerjjee | Personal Story, Family, Cricket, Transition, India Story</title>
-            <meta name="description" content="Sauvik Banerjjee's personal story and journey about growing up, family, cricket, transition to tech and building for India story" >
+            <title>Sauvik Banerjjee Timeline | Personal Story & Journey</title>
+            <meta name="description" content="Explore Sauvik Banerjjee's personal timeline, from childhood and family to cricket, career transition and his journey shaped by India's story." >
 
             </meta>
             <meta property="og:image" content="/Sauvik_Banerjjee_OgImage.png" />
